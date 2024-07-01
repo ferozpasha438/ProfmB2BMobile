@@ -381,13 +381,14 @@ const projectDataForSupervisorCallback = projectListResponse => {
         <View style={[styles.frameParent2, styles.framePosition]}>
           <View style={styles.rectangleParent7}>
             <Text style={[styles.unfinishedServices, styles.text5Layout]}>
-                Unfinished services
+                {projectData.find(item => item.value === projectCode)?.label}
             </Text>
             <Text style={[styles.text22, styles.textTypo1]}>( {sum} )</Text>
           </View>
           <Text numberOfLines={2} style={[styles.jeddahYachtClub2, styles.textTypo1]}>
-              {projectData.find(item => item.value === projectCode)?.label}
+                Unfinished services  
           </Text>
+          
         </View>
         <Pressable onPress={showFilters}>
             <Image
@@ -1803,7 +1804,7 @@ const styles = StyleSheet.create({
     left:20
   },
   jeddahYachtClub2: {
-    width: "60%",
+    width: "70%",
     color: Color.black,
     marginTop: 4,
     fontWeight: "300",

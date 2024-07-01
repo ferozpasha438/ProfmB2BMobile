@@ -74,6 +74,7 @@ export const FontFamily = {
     colorLightgray_100: "#ccd9df",
     colorBeige: "#d3e2cf",
     colorDimgray_100: "#666",
+    colorDimgray_200: "#5e5e5e",
   };
   /* Paddings */
   export const Padding = {
@@ -109,6 +110,11 @@ export const FontFamily = {
     p_11xl_5: 31,
     p_10xl_2: 29,
     p_12xl_5: 32,
+    p_10xs: 3,
+    p_10xs_4: 2,
+    p_lgi_6: 20,
+    p_mini: 15,
+    p_82xl: 101,
   };
   /* border radiuses */
   export const Border = {
@@ -127,5 +133,9 @@ export const FontFamily = {
     br_12xs: 1,
     br_11xs_7: 2,
     br_11xs_5: 2,
+    br_10xs: 3,
+    br_10xs_4: 2,
+    br_11xs_2: 1,
+    br_3xl_1: 22,
   };
   

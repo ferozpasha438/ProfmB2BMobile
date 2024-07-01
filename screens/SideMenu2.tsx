@@ -51,12 +51,18 @@ const SideMenu2 = () => {
   }, []);
   
   const [logUserName, setLogUserName] = useState('');
+  const [isCustomer, setIsCustomer] = useState(true);
   const checkLoginDetails = async () => {
     try {
       let result : any =await AsyncStorage.getItem('userInfo');
       var userInfo = JSON.parse(result);
       if (userInfo !== null && userInfo !== undefined) {
         setLogUserName(userInfo.userName);
+        if(userInfo.loginType!=='client'){
+          setIsCustomer(false);
+        }else{
+          setIsCustomer(true);
+        }
       }
     } catch (error) {
       console.error('AsyncStorage Error:', error);
@@ -139,17 +145,18 @@ const SideMenu2 = () => {
           <Text style={[styles.aboutUs, styles.homeTypo]}>Contact Us</Text>
         </Pressable>
 
-        <Pressable
+       
+        {!isCustomer&&<Pressable
           style={styles.menu31}
-          onPress={() => navigation.navigate("Home1")}
+          onPress={() => navigation.navigate("Schedules")}
         >
           <Image
             style={styles.frameIcon3}
             resizeMode="cover"
-            source={require("../assets/frame51.png")}
+            source={require("../assets/Schedules1.png")}
           />
-          <Text style={[styles.aboutUs, styles.homeTypo]}>Change Language</Text>
-        </Pressable>
+          <Text style={[styles.aboutUs, styles.homeTypo]}>Schedules</Text>
+        </Pressable>}
 
         <View style={[styles.sideMenuItem, styles.sideLayout]} />
         <View style={[styles.sideMenuInner, styles.sideLayout]} />

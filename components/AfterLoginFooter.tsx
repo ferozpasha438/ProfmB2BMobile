@@ -86,14 +86,14 @@ const AfterLoginFooter = (props:{ currentRoute: string }) => {
           
           {isCustomer?<Pressable
              style={[styles.menu5, styles.menuLayout]}
-            onPress={() => navigation.navigate("Profile1")}
+            onPress={() => navigation.navigate("Schedules")}
           >
             <Image
               style={[styles.frameIcon9,{left:"25%"}]}
               resizeMode="cover"
-              source={props.currentRoute=='Profile'?require("../assets/liuser2.png"):require("../assets/liuser.png")}
+              source={props.currentRoute=='Schedules'?require("../assets/SchedulesActive.png"):require("../assets/Schedules1.png")}
             />
-            <Text style={props.currentRoute=='Profile'?[styles.home1, styles.home1Typo]:[styles.requests, styles.home1Typo]}>My Account</Text>
+            <Text style={props.currentRoute=='Schedules'?[styles.home1, styles.home1Typo]:[styles.requests, styles.home1Typo]}>Schedules</Text>
           </Pressable> :
           <Pressable
              style={[styles.menu5, styles.menuLayout]}

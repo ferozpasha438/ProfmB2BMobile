@@ -1,5 +1,5 @@
 const Stack = createNativeStackNavigator();
-import * as React from "react";
+import React, {FC, ReactElement, useEffect, useState, Component, useCallback} from 'react';
 import { NavigationContainer } from "@react-navigation/native";
 
 import Login from "./screens/Login";
@@ -149,11 +149,9 @@ import ToolsNMaterial from './screens/ToolsNMaterial';
 import AllToolsNMaterialsRequest from './screens/AllToolsNMaterialsRequest';
 import AllToolsNMaterialsFinalData from './screens/AllToolsNMaterialsFinalData';
 import ClosedTicket from './screens/ClosedTicket';
-
-
+import Schedules from './screens/Schedules';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, Text, Pressable, TouchableOpacity } from "react-native";
-
 
 const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = React.useState(true);
@@ -224,6 +222,11 @@ const App = () => {
               component={ClosedTicket}
               options={{ headerShown: false }}
             />
+             <Stack.Screen
+              name="Schedules"
+              component={Schedules}
+              options={{ headerShown: false }}
+               />
             
             
             

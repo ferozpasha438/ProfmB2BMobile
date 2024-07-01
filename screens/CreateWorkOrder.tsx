@@ -57,9 +57,9 @@ const CreateWorkOrder = ({route}) => {
   
   const handleDateChange = (event, date) => {
     if (date !== undefined) {
+      setShowPicker(false);
       setMaintenanceStartDate(date.toLocaleDateString());
       setMaintenanceStartDateP(date);
-      setShowPicker(false);
     } 
   };
 
@@ -69,9 +69,9 @@ const CreateWorkOrder = ({route}) => {
 
   const handleDateChangeForEndDate = (event, date) => {
     if (date !== undefined) {
+      setShowPickerForEndDate(false);
       setEstimatedEndDate(date.toLocaleDateString());
       setEstimatedEndDateP(date);
-      setShowPickerForEndDate(false);
     } 
   };
 

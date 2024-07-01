@@ -5,7 +5,7 @@ var { StyleSheet, Platform, Dimensions } = ReactNative;
 import DeviceInfo from "react-native-device-info";
 
 // PRODUCTION CONFIG
-const BASE_SERVER = "https://13.69.11.184/FomMob/api/";
+const BASE_SERVER = "https://13.69.11.184/FomDevMob/api/";
 const JWT_Key="tKE+pMd2rQAHBbOjXWTZqacLJRLqlrnTzZdmKRJEXLjtiGOnFY3w+vuUxPSgLdMFbbVXxPrFWNUd/yQyG5PsEg==";
 
 // STAGING CONFIG
