@@ -1,5 +1,5 @@
 import React, {FC, ReactElement, useEffect, useState, Component} from 'react';
-import { Image, StyleSheet, View, Text, Pressable, ScrollView, Dimensions, TextInput, Alert } from "react-native";
+import { Image, StyleSheet, View, Text, Pressable, ScrollView, Dimensions, TextInput, Alert, Platform } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase, useIsFocused } from "@react-navigation/native";
 import { FontFamily, FontSize, Color, Border, Padding } from "../GlobalStyles";
@@ -330,7 +330,7 @@ const projectDataForSupervisorCallback = projectListResponse => {
       alwaysBounceVertical={false}>
     <View style={{ flex: 1,width:"96%",left:"2%" }}>
       <Image
-        style={[styles.icon, styles.iconLayout2]}
+        style={[(Platform.OS=='ios'?styles.iconIOS:styles.icon), styles.iconLayout2]}
         resizeMode="cover"
         source={require("../assets/3-1-1.png")}
       />
@@ -640,7 +640,7 @@ const projectDataForSupervisorCallback = projectListResponse => {
                  {item.projectNameEng}
               </Text>
               
-              <Text style={[styles.orderNumber, styles.textTypo1]}>
+              <Text style={[(Platform.OS=='ios'?styles.orderNumberIOS:styles.orderNumber), styles.textTypo1]}>
                 Order number :
               </Text>
 
@@ -671,8 +671,8 @@ const projectDataForSupervisorCallback = projectListResponse => {
           <View style={styles.lineView} />
           
           <View style={styles.lineParent}>
-            <View style={[item.isCompleted?styles.groupChild4 : styles.groupChild3, styles.groupChildPosition1]} />
-            <View style={[item.isCompleted?styles.groupChild4 : (item.isWorkInProgress?styles.groupChild4 : styles.groupChild3), styles.groupChildPosition]} />
+            <View style={[item.isCompleted?styles.groupChild4 : styles.groupChild3, (Platform.OS=='ios'?styles.groupChildPosition1IOS:styles.groupChildPosition1)]} />
+            <View style={[item.isCompleted?styles.groupChild4 : (item.isWorkInProgress?styles.groupChild4 : styles.groupChild3), (Platform.OS=='ios'?styles.groupChildPositionIOS:styles.groupChildPosition)]} />
             <Image
               style={[styles.ellipseIcon, styles.groupChildLayout]}
               resizeMode="cover"
@@ -1031,6 +1031,24 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     position: "absolute",
   },
+  groupChildPosition1IOS: {
+    width: 100,
+    borderTopWidth: 1,
+    left: "52%",
+    top: 5,
+    height: 1,
+    borderStyle: "solid",
+    position: "absolute",
+  },
+  groupChildPositionIOS: {
+    left: "12%",
+    width: 100,
+    borderTopWidth: 1,
+    top: 5,
+    height: 1,
+    borderStyle: "solid",
+    position: "absolute",
+  },
   groupChildLayout: {
     height: 10,
     width: 10,
@@ -1156,6 +1174,11 @@ const styles = StyleSheet.create({
     height: 31,
     left: "38%",
   },
+  iconIOS: {
+    top: 40,
+    height: 31,
+    left: "38%",
+  },
   notchIcon: {
     top: -2,
     left: 78,
@@ -1210,7 +1233,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   recentRequests: {
-    left: "3%",
+    left: "1%"  ,
     width: "50%",
     height: 24,
     textAlign: "left",
@@ -1511,6 +1534,11 @@ const styles = StyleSheet.create({
   },
   orderNumber: {
     width: "20%",
+    color: Color.black,
+    fontWeight: "700",
+  },
+  orderNumberIOS: {
+    width: "22%",
     color: Color.black,
     fontWeight: "700",
   },
@@ -1970,7 +1998,15 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     width: "100%",
     flex: 1,
-    maxHeight:"100%"
+    maxHeight:"100%",
+  },
+  homeIOS: {
+    backgroundColor: Color.colorGray_100,
+    overflow: "hidden",
+    width: "100%",
+    flex: 1,
+    maxHeight:"100%",
+    top:'3%'
   },
 
 

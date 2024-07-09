@@ -1,5 +1,5 @@
 import React, {FC, ReactElement, useEffect, useState, Component} from 'react';
-import { Image, StyleSheet, View, Text, Pressable, TextInput,TouchableOpacity, ScrollView, Keyboard, Alert, Dimensions } from "react-native";
+import { Image, StyleSheet, View, Text, Pressable, TextInput,TouchableOpacity, ScrollView, Keyboard, Alert, Dimensions, Platform } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase, useIsFocused } from "@react-navigation/native";
@@ -80,6 +80,7 @@ const Login = () => {
     }
   };
   useEffect(() => {
+    
     if(focus){
       checkLoginDetails()
     }
@@ -171,12 +172,12 @@ angle={180.13}
               styles.parentPosition,
               ]}>
               <Image
-              style={[styles.smsIcon, styles.iconLayout]}
+              style={[(Platform.OS=='ios'?styles.smsIconIOS:styles.smsIcon), styles.iconLayout]}
               resizeMode="cover"
               source={require("../assets/sms.png")}
               />
               <TextInput value={username} onChangeText={(text) => setUsername(text)}
-              autoCapitalize={'none'} style={[styles.pleaseEnterYour, styles.pleaseTypo]} placeholder="Please enter your email"
+              autoCapitalize={'none'} style={[styles.pleaseEnterYour, (Platform.OS=='ios'?styles.pleaseTypoIOS:styles.pleaseTypo)]} placeholder="Please enter your email"
                   placeholderTextColor="#000"/>
               
               
@@ -194,12 +195,12 @@ angle={180.13}
                 ]}
             >
                 <Image
-                  style={[styles.lockIcon, styles.iconLayout]}
+                  style={[(Platform.OS=='ios'?styles.lockIconIOS:styles.lockIcon), styles.iconLayout]}
                   resizeMode="cover"
                   source={require("../assets/lock.png")}
               />
               <TextInput value={password} secureTextEntry={isShowPassword}
-                  onChangeText={(text) => setPassword(text)} style={[styles.pleaseEnterYour1, styles.pleaseTypo]} placeholder="Please enter your password"
+                  onChangeText={(text) => setPassword(text)} style={[styles.pleaseEnterYour1, (Platform.OS=='ios'?styles.pleaseTypoIOS:styles.pleaseTypo)]} placeholder="Please enter your password"
                   placeholderTextColor="#000"/>
               
               </View>
@@ -207,7 +208,7 @@ angle={180.13}
                 style={styles.eyePressable}
                 onPress={showHidePassword}>
                   <Image
-                      style={[styles.eyeSlashIcon, styles.iconLayout]}
+                      style={[(Platform.OS=='ios'?styles.eyeSlashIconIOS:styles.eyeSlashIcon), styles.iconLayout]}
                       resizeMode="cover"
                       source={!isShowPassword?require("../assets/eyeslash.png"):require("../assets/eye.png")}/>
               </Pressable>
@@ -227,7 +228,7 @@ angle={180.13}
 
   </View>
   
-  <View style={[styles.frameParent1, styles.frameParentPosition]}>
+  <View style={styles.frameParent1}>
        
       <TouchableOpacity
             style={[styles.logInWrapper, styles.parentFlexBox]}
@@ -236,13 +237,13 @@ angle={180.13}
          <Text style={[styles.logIn, styles.logInTypo]}>Log in</Text>
       </TouchableOpacity>
       <View style={styles.byLoggingIntoTheAccountYoParent}>
-      <Text style={[styles.byLoggingInto, styles.byLoggingIntoTypo]}>
+      <Text style={[(Platform.OS=='ios'?styles.byLoggingIntoIOS:styles.byLoggingInto), styles.byLoggingIntoTypo]}>
           By logging into the account you agree to
       </Text>
       <Text style={[styles.termsAndConditions, styles.byLoggingIntoTypo]}>
           Terms and conditions
       </Text>
-      <View style={styles.groupInner} />
+      <View style={(Platform.OS=='ios'?styles.groupInnerIOS:styles.groupInner)} />
       </View>
   </View>
   <AlertMessage/>
@@ -291,6 +292,15 @@ const styles = StyleSheet.create({
     textAlign: "left",
     fontFamily: FontFamily.dGBaysan,
     fontWeight: "300",
+  },
+  pleaseTypoIOS: {
+    color: Color.black,
+    fontSize: 15,
+    textAlign: "left",
+    fontFamily: FontFamily.dGBaysan,
+    fontWeight: "300",
+    marginTop:'5%',
+    marginLeft:'2%'
   },
   iconLayout: {
     height: 20,
@@ -419,6 +429,10 @@ const styles = StyleSheet.create({
   smsIcon: {
     marginLeft: 0,
   },
+  smsIconIOS: {
+    marginLeft: '2%',
+    marginTop:'5%'
+  },
   pleaseEnterYourEmailParent: {
     left: "5%",
     justifyContent: "center",
@@ -448,6 +462,13 @@ const styles = StyleSheet.create({
     position: "absolute",
     top:"25%"
   },
+  eyeSlashIconIOS: {
+    opacity: 0.5,
+    alignItems: 'flex-end',
+    right:"2%",
+    position: "absolute",
+    top:"27%"
+  },
   pleaseEnterYour1: {
     opacity: 0.5,
     textAlign: "left",
@@ -455,6 +476,10 @@ const styles = StyleSheet.create({
   },
   lockIcon: {
     marginLeft: 0,
+  },
+  lockIconIOS: {
+    marginLeft: '2%',
+    marginTop:'5%'
   },
   pleaseEnterYourPasswordParent: {
     marginLeft: "0%",
@@ -575,6 +600,11 @@ const styles = StyleSheet.create({
     color: Color.ternary,
     width:"60%"
   },
+  byLoggingIntoIOS: {
+    left: "5%",
+    color: Color.ternary,
+    width:"60%"
+  },
   termsAndConditions: {
     width: "36%",
     color: Color.praimary,
@@ -591,6 +621,16 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     position: "absolute",
   },
+  groupInnerIOS: {
+    top: 16,
+    left: "65%",
+    borderColor: Color.praimary,
+    borderTopWidth: 1,
+    width: 97,
+    height: 1,
+    borderStyle: "solid",
+    position: "absolute",
+  },
   byLoggingIntoTheAccountYoParent: {
     width: "100%",
     marginTop: 16,
@@ -598,6 +638,9 @@ const styles = StyleSheet.create({
   },
   frameParent1: {
     top: "80%",
+    left:'3%',
+    width:'94%',
+    position:'absolute',
     alignItems: "center",
   },
 });
