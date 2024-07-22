@@ -190,7 +190,9 @@ const getDashBoardDataCallback = getDashBoardDataReponse => {
                     <Text style={[styles.allRequests, styles.requestTypo]}>
                         {item.label} 
                     </Text>
-                    <RadioButton value={item.value} color="#356a7e" uncheckedColor="#356a7e"
+                    <RadioButton.Android value={item.value} color="#356a7e" uncheckedColor="#356a7e"
+                              status={selectedFilterValue === item.value ? 'checked' : 'unchecked'}/>
+                    <RadioButton.IOS value={item.value} color="#356a7e" underlayColor="#356a7e"
                               status={selectedFilterValue === item.value ? 'checked' : 'unchecked'}/>
               </View>
     
