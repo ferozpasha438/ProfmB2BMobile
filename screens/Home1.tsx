@@ -1,4 +1,4 @@
-import React, {FC, ReactElement, useEffect, useState, Component, useMemo} from 'react';
+import React, {FC, ReactElement, useEffect, useState, Component} from 'react';
 import { Image, StyleSheet, View, Text, Pressable, ScrollView, Dimensions, TextInput, Alert, Platform } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase, useIsFocused } from "@react-navigation/native";
@@ -84,7 +84,7 @@ const Home1 = () => {
   const [onHoldPercentage, setOnHoldPercentage] = useState('0%');
   const [onHoldLeftPercentage, setOnHoldLeftPercentage] = useState('0%');
 
-  
+
   const [selectedFilterValue, setSelectedFilterValue] = useState('');
   const handleRadioChange = (value:any) => {
      setSelectedFilterValue(value);
@@ -174,7 +174,6 @@ const getDashBoardDataCallback = getDashBoardDataReponse => {
  useEffect(() => {
    if(projectCode!=''){
     getDashBoardData();
-    console.log('projectData : '+JSON.stringify(projectData));
    }
  }, [projectCode]);
 
@@ -190,16 +189,12 @@ const getDashBoardDataCallback = getDashBoardDataReponse => {
                     <Text style={[styles.allRequests, styles.requestTypo]}>
                         {item.label} 
                     </Text>
-                    {Platform.OS=='ios'?<RadioButton.IOS value={item.value} color="#356a7e" underlayColor="#356a7e"
-                              status={selectedFilterValue === item.value ? 'checked' : 'unchecked'}/>:
-                              <RadioButton.Android value={item.value} color="#356a7e" uncheckedColor="#356a7e"
-                              status={selectedFilterValue === item.value ? 'checked' : 'unchecked'}/>}
+                    <RadioButton.Android value={item.value} color="#356a7e" uncheckedColor="#356a7e"
+                              status={selectedFilterValue === item.value ? 'checked' : 'unchecked'}/>
               </View>
     
         ))}
   </RadioButton.Group>);
-  
-
 };
 
   const hideMessage=async () =>{
@@ -284,13 +279,12 @@ const getDashBoardDataCallback = getDashBoardDataReponse => {
    var count = projectResponse.length;
    var data=[];
    for (var i = 0; i < count; ++i) {
-     data.push({ label:projectResponse[i].textTwo, value:projectResponse[i].text});
+     data.push({label:projectResponse[i].textTwo,value:projectResponse[i].text});
      if(i===0){
        setProjectCode(projectResponse[i].text);
        setSelectedFilterValue(projectResponse[i].text);
      }
    }
-   console.log('data : '+JSON.stringify(projectResponse));
    setProjectData(data);
  }
  const getProjectDataListForSupervisor = async (jwttoken:string) => {
@@ -756,7 +750,7 @@ const projectDataForSupervisorCallback = projectListResponse => {
            width: "100%",
            height: windowHeight,
            position: "absolute",}} />:null}
-      {isShowPopUp?<View style={styles.loginWithFaceId} >
+      {isShowPopUp?<View style={[styles.loginWithFaceId, styles.homeItemPosition]} >
         <View style={[styles.faceId, styles.groupChildShadowBox1]}>
           <View style={[styles.attendanceSuccessful, styles.homeItemPosition]}>
             <Image
@@ -823,14 +817,14 @@ const projectDataForSupervisorCallback = projectListResponse => {
                 Reason for closure
             </Text>
             <View style={[styles.rectangleParent3, styles.groupChildLayoutp]}>
+              <View style={[styles.groupChildp, styles.childGroupShadowBox]} />
               <TextInput
                     multiline
                     numberOfLines={4}
                     maxLength={300}
-                    textAlignVertical='top'
                     onChangeText={text => setDeleteReason(text)}
                     value={deleteReason}
-                    style={[styles.groupChildp, styles.childGroupShadowBox,styles.pleaseSelectReason]}
+                    style={styles.pleaseSelectReason}
                   />
               {/* <Text style={[styles.pleaseSelectReason, styles.reasonTypo]}>
                         Please select reason
@@ -879,7 +873,7 @@ const projectDataForSupervisorCallback = projectListResponse => {
               <Text style={[styles.status, styles.filterTypo]}>Status</Text>
 
 
-              <View style={styles.filterParent}>
+              <View style={[styles.filterParent, styles.frameGroupPosition]}>
 
                       {renderData()}
                      
@@ -1166,8 +1160,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   homeItemPosition: {
-    top: "10%",
-    left: 0,
+    top: "50%",
+    left: "50%",
     position: "absolute",
   },
   youCanNowTypo: {
@@ -1939,7 +1933,7 @@ const styles = StyleSheet.create({
   successfulLogin: {
     fontSize: FontSize.size_2xl,
     color: Color.colorMediumseagreen,
-    width: '100%',
+    width: 256,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -1948,34 +1942,35 @@ const styles = StyleSheet.create({
     height: 35,
   },
   youCanNow: {
-    width: 320,
+    width: 292,
     height: 87,
     marginTop: 8,
     color: Color.colorLightsteelblue_100,
     fontSize: FontSize.size_base,
-    left:'2%'
   },
   successfulLoginParent: {
-    marginTop: 15,
+    marginTop: 16,
     alignItems: "center",
   },
   attendanceSuccessful: {
-    height: 270,
+    marginTop: -138,
+    marginLeft: -146.5,
+    height: 276,
     justifyContent: "center",
     alignItems: "center",
-
   },
   icon2: {
     height: "100%",
     width: "100%",
   },
   vector: {
-    right: "5%",
-    top: "5%",
-    width: "6%",
-    height: "6%",
+    left: "88.34%",
+    top: "5.99%",
+    right: "5.83%",
+    bottom: "88.02%",
+    width: "5.83%",
+    height: "5.99%",
     position: "absolute",
-    zIndex:1
   },
   faceId: {
     borderRadius: Border.br_mini,
@@ -1989,16 +1984,14 @@ const styles = StyleSheet.create({
     },
     shadowColor: "rgba(0, 0, 0, 0.05)",
     backgroundColor: Color.whait,
-    width: '100%',
+    width: 343,
     overflow: "hidden",
   },
   loginWithFaceId: {
+    marginTop: -167,
     justifyContent: "center",
     alignItems: "center",
-    width:'96%',
-    position:'absolute',
-    top: "25%",
-    left: '2%',
+    marginLeft: -171.5,
   },
   home: {
     backgroundColor: Color.colorGray_100,
@@ -2255,7 +2248,7 @@ vectorIconp2: {
 },
 status: {
   top: 76,
-  left: "6%",
+  left: "8%",
   width: "100%",
   color: Color.black,
   lineHeight: 25,
@@ -2283,11 +2276,6 @@ groupPosition2: {
 filterParent: {
   top: 108,
   width: "100%",
-  left: "3%",
-  position: "absolute",
-  zIndex:1,
-  textAlign:'left',
-  alignItems: "flex-start",
 },
 filter1: {
   width: "100%",
