@@ -194,6 +194,7 @@ const App = () => {
                   headerShown:true, 
                   headerTitleAlign:'center',
                   headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                  headerBackTitleVisible:false
                  }}
             />
             <Stack.Screen
@@ -213,6 +214,7 @@ const App = () => {
                  headerShown:true, 
                  headerTitleAlign:'center',
                  headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                 headerBackTitleVisible:false
                 }}
             />
             <Stack.Screen
@@ -226,6 +228,7 @@ const App = () => {
                  headerShown:true, 
                  headerTitleAlign:'center',
                  headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                 headerBackTitleVisible:false
                 }}
             />
             <Stack.Screen
@@ -239,6 +242,7 @@ const App = () => {
                  headerShown:true, 
                  headerTitleAlign:'center',
                  headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                 headerBackTitleVisible:false
                 }}
             />
             <Stack.Screen
@@ -267,6 +271,7 @@ const App = () => {
                  headerShown:true, 
                  headerTitleAlign:'center',
                  headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                 headerBackTitleVisible:false
                 }}
                />
             
@@ -345,6 +350,7 @@ const App = () => {
                  headerShown:true, 
                  headerTitleAlign:'center',
                  headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                 headerBackTitleVisible:false
                 }}
             />
             <Stack.Screen
@@ -358,6 +364,7 @@ const App = () => {
                  headerShown:true, 
                  headerTitleAlign:'center',
                  headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                 headerBackTitleVisible:false
                 }}
             />
             <Stack.Screen
@@ -371,6 +378,7 @@ const App = () => {
                  headerShown:true, 
                  headerTitleAlign:'center',
                  headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                 headerBackTitleVisible:false
                 }}
             />
             <Stack.Screen
@@ -384,6 +392,7 @@ const App = () => {
                  headerShown:true, 
                  headerTitleAlign:'center',
                  headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                 headerBackTitleVisible:false
                 }}
             />
             <Stack.Screen
@@ -397,6 +406,7 @@ const App = () => {
                  headerShown:true, 
                  headerTitleAlign:'center',
                  headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                 headerBackTitleVisible:false
                 }}
             />
             <Stack.Screen
@@ -410,6 +420,7 @@ const App = () => {
                  headerShown:true, 
                  headerTitleAlign:'center',
                  headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                 headerBackTitleVisible:false
                 }}
             /> 
             <Stack.Screen
@@ -423,6 +434,7 @@ const App = () => {
                  headerShown:true, 
                  headerTitleAlign:'center',
                  headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                 headerBackTitleVisible:false
                 }}
             /> 
             <Stack.Screen
@@ -436,6 +448,7 @@ const App = () => {
                  headerShown:true, 
                  headerTitleAlign:'center',
                  headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                 headerBackTitleVisible:false
                 }}
             />           
                       
@@ -476,6 +489,7 @@ const App = () => {
                  headerShown:true, 
                  headerTitleAlign:'center',
                  headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                 headerBackTitleVisible:false
                 }}
             />
             <Stack.Screen
@@ -489,6 +503,7 @@ const App = () => {
                  headerShown:true, 
                  headerTitleAlign:'center',
                  headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                 headerBackTitleVisible:false
                 }}
             />
             <Stack.Screen
@@ -552,6 +567,7 @@ const App = () => {
                  headerShown:true, 
                  headerTitleAlign:'center',
                  headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                 headerBackTitleVisible:false
                 }}
             />
             <Stack.Screen
@@ -726,6 +742,7 @@ const App = () => {
                  headerShown:true, 
                  headerTitleAlign:'center',
                  headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                 headerBackTitleVisible:false
                 }}
             />
             <Stack.Screen
@@ -774,6 +791,7 @@ const App = () => {
                  headerShown:true, 
                  headerTitleAlign:'center',
                  headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                 headerBackTitleVisible:false
                 }}
             />
             <Stack.Screen
