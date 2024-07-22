@@ -572,66 +572,52 @@ const Requests5 = () => {
                         <Text style={[styles.allRequests, styles.requestTypo]}>
                           All Ticket
                         </Text>
-                        {Platform.OS=='ios'?<RadioButton.IOS value="0" color="#356a7e" underlayColor="#356a7e"
-                                  status={selectedFilterValue === '0' ? 'checked' : 'unchecked'}/>:
-                                  <RadioButton.Android value="0" color="#356a7e" uncheckedColor="#356a7e"
-                                  status={selectedFilterValue === '0' ? 'checked' : 'unchecked'}/>}
+                           <RadioButton.Android value="0" color="#356a7e" uncheckedColor="#356a7e"
+                                  status={selectedFilterValue === '0' ? 'checked' : 'unchecked'}/>
                       </View>
                       <View style={[styles.filter2, styles.filterSpaceBlock]}>
                         <Text style={[styles.completedRequest, styles.requestTypo]}>
                           Completed Ticket
                         </Text>
-                        {Platform.OS=='ios'?<RadioButton.IOS value="11" color="#356a7e" underlayColor="#356a7e"
-                                  status={selectedFilterValue === '11' ? 'checked' : 'unchecked'}/>:
-                                  <RadioButton.Android value="11" color="#356a7e" uncheckedColor="#356a7e"
-                                  status={selectedFilterValue === '11' ? 'checked' : 'unchecked'}/>}
+                          <RadioButton.Android value="11" color="#356a7e" uncheckedColor="#356a7e"
+                                  status={selectedFilterValue === '11' ? 'checked' : 'unchecked'}/>
                       </View>
                       <View style={[styles.filter2, styles.filterSpaceBlock]}>
                         <Text style={[styles.completedRequest, styles.requestTypo]}>
                           Ticket in progress
                         </Text>
-                        {Platform.OS=='ios'?<RadioButton.IOS value="7" color="#356a7e" underlayColor="#356a7e"
-                                  status={selectedFilterValue === '7' ? 'checked' : 'unchecked'}/>:
-                                  <RadioButton.Android value="7" color="#356a7e" uncheckedColor="#356a7e"
-                                  status={selectedFilterValue === '7' ? 'checked' : 'unchecked'}/>}
+                        <RadioButton.Android value="7" color="#356a7e" uncheckedColor="#356a7e"
+                                  status={selectedFilterValue === '7' ? 'checked' : 'unchecked'}/>
                       </View>
                       <View style={[styles.filter4, styles.filterSpaceBlock]}>
                         <Text style={[styles.incompleteRequest, styles.requestTypo]}>
                           Incomplete Ticket
                         </Text>
-                        {Platform.OS=='ios'?<RadioButton.IOS value="15" color="#356a7e" underlayColor="#356a7e"
-                                  status={selectedFilterValue === '15' ? 'checked' : 'unchecked'}/>:
-                                  <RadioButton.Android value="15" color="#356a7e" uncheckedColor="#356a7e"
-                                  status={selectedFilterValue === '15' ? 'checked' : 'unchecked'}/>}
+                        <RadioButton.Android value="15" color="#356a7e" uncheckedColor="#356a7e"
+                                  status={selectedFilterValue === '15' ? 'checked' : 'unchecked'}/>
                       </View>
                       <View style={[styles.filter4, styles.filterSpaceBlock]}>
                         <Text style={[styles.incompleteRequest, styles.requestTypo]}>
                           Tickets are out of scope
                         </Text>
-                        {Platform.OS=='ios'?<RadioButton.IOS value="16" color="#356a7e" underlayColor="#356a7e"
-                                  status={selectedFilterValue === '16' ? 'checked' : 'unchecked'}/>:
-                                  <RadioButton.Android value="16" color="#356a7e" uncheckedColor="#356a7e"
-                                  status={selectedFilterValue === '16' ? 'checked' : 'unchecked'}/>}
+                        <RadioButton.Android value="16" color="#356a7e" uncheckedColor="#356a7e"
+                                  status={selectedFilterValue === '16' ? 'checked' : 'unchecked'}/>
                       </View>
 
                       <View style={[styles.filter4, styles.filterSpaceBlock]}>
                         <Text style={[styles.incompleteRequest, styles.requestTypo]}>
                           Tickets In Trasit
                         </Text>
-                        {Platform.OS=='ios'?<RadioButton.IOS value="12" color="#356a7e" underlayColor="#356a7e"
-                                  status={selectedFilterValue === '12' ? 'checked' : 'unchecked'}/>:
-                                  <RadioButton.Android value="12" color="#356a7e" uncheckedColor="#356a7e"
-                                  status={selectedFilterValue === '12' ? 'checked' : 'unchecked'}/>}
+                        <RadioButton.Android value="12" color="#356a7e" uncheckedColor="#356a7e"
+                                  status={selectedFilterValue === '12' ? 'checked' : 'unchecked'}/>
                       </View>
 
                       <View style={[styles.filter4, styles.filterSpaceBlock]}>
                         <Text style={[styles.incompleteRequest, styles.requestTypo]}>
                           Tickets On Hold
                         </Text>
-                        {Platform.OS=='ios'?<RadioButton.IOS value="13" color="#356a7e" underlayColor="#356a7e"
-                                  status={selectedFilterValue === '13' ? 'checked' : 'unchecked'}/>:
-                                  <RadioButton.Android value="13" color="#356a7e" uncheckedColor="#356a7e"
-                                  status={selectedFilterValue === '13' ? 'checked' : 'unchecked'}/>}
+                        <RadioButton.Android value="13" color="#356a7e" uncheckedColor="#356a7e"
+                                  status={selectedFilterValue === '13' ? 'checked' : 'unchecked'}/>
                       </View>
                     
                   </RadioButton.Group>
