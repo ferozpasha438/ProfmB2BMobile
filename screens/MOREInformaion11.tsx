@@ -1,5 +1,5 @@
 import React, {FC, ReactElement, useEffect, useState, Component} from 'react';
-import { StyleSheet, View, Text, Pressable, Image, TextInput, Switch, ScrollView, Dimensions, FlatList, Alert, Keyboard } from "react-native";
+import { StyleSheet, View, Text, Pressable, Image, TextInput, Switch, ScrollView, Dimensions, FlatList, Alert, Keyboard, Platform } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase } from "@react-navigation/native";
 import { FontSize, Color, FontFamily, Border, Padding } from "../GlobalStyles";
@@ -469,15 +469,19 @@ const MOREInformaion11 = () => {
                           <Text style={[styles.allRequests, styles.requestTypo]}>
                               In Scope
                           </Text>
-                          <RadioButton value="InScope" color="#356a7e" uncheckedColor="#356a7e"
-                                  status={serviceType === 'InScope' ? 'checked' : 'unchecked'}/>
+                          {Platform.OS=='ios'?<RadioButton.IOS value="InScope" color="#356a7e" underlayColor="#356a7e"
+                                  status={serviceType === 'InScope' ? 'checked' : 'unchecked'}/>:
+                                  <RadioButton.Android value="InScope" color="#356a7e" uncheckedColor="#356a7e"
+                                  status={serviceType === 'InScope' ? 'checked' : 'unchecked'}/>}
                       </View>
                       <View style={styles.filter2}>
                           <Text style={[styles.completedRequest, styles.requestTypo]}>
                              Out Of Scope
                           </Text>
-                          <RadioButton value="OutOfScope" color="#356a7e" uncheckedColor="#356a7e"
-                                  status={serviceType === 'OutOfScope' ? 'checked' : 'unchecked'}/>
+                          {Platform.OS=='ios'?<RadioButton.IOS value="OutOfScope" color="#356a7e" underlayColor="#356a7e"
+                                  status={serviceType === 'OutOfScope' ? 'checked' : 'unchecked'}/>:
+                                  <RadioButton.Android value="OutOfScope" color="#356a7e" uncheckedColor="#356a7e"
+                                  status={serviceType === 'OutOfScope' ? 'checked' : 'unchecked'}/>}
                       </View>
                   </RadioButton.Group>
             
@@ -496,15 +500,19 @@ const MOREInformaion11 = () => {
                           <Text style={[styles.allRequests, styles.requestTypo]}>
                                Corrective
                           </Text>
-                          <RadioButton value="Corrective" color="#356a7e" uncheckedColor="#356a7e"
-                                  status={serviceType === 'Corrective' ? 'checked' : 'unchecked'}/>
+                          {Platform.OS=='ios'?<RadioButton.IOS value="Corrective" color="#356a7e" underlayColor="#356a7e"
+                                  status={serviceType === 'Corrective' ? 'checked' : 'unchecked'}/>:
+                                  <RadioButton.Android value="Corrective" color="#356a7e" uncheckedColor="#356a7e"
+                                  status={serviceType === 'Corrective' ? 'checked' : 'unchecked'}/>}
                       </View>
                       <View style={styles.filter2}>
                           <Text style={[styles.completedRequest, styles.requestTypo]}>
                                Preventive
                           </Text>
-                          <RadioButton value="Preventive" color="#356a7e" uncheckedColor="#356a7e"
-                                  status={serviceType === 'Preventive' ? 'checked' : 'unchecked'}/>
+                          {Platform.OS=='ios'?<RadioButton.IOS value="Preventive" color="#356a7e" underlayColor="#356a7e"
+                                  status={serviceType === 'Preventive' ? 'checked' : 'unchecked'}/>:
+                                  <RadioButton.Android value="Preventive" color="#356a7e" uncheckedColor="#356a7e"
+                                  status={serviceType === 'Preventive' ? 'checked' : 'unchecked'}/>}
                       </View>
                   </RadioButton.Group>
             

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { StyleSheet, View, Image, Text, Pressable, Modal, ScrollView, Dimensions, Alert, TouchableOpacity, TextInput } from "react-native";
+import { StyleSheet, View, Image, Text, Pressable, Modal, ScrollView, Dimensions, Alert, TouchableOpacity, TextInput, Platform } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase, useIsFocused } from "@react-navigation/native";
 // import Arrived7 from "../components/Arrived7";
@@ -1100,8 +1100,10 @@ const getRequestList = async (jwttoken:string) => {
 
     <RadioButton.Group onValueChange={handleRadioChange} value={ticketType}>
             <View style={[styles.serviceClass, styles.servicePosition]}>
-              <RadioButton.Android value="all" color="#356a7e" uncheckedColor="#356a7e"
-                        status={ticketType === 'all' ? 'checked' : 'unchecked'}/>
+              {Platform.OS=='ios'?<RadioButton.IOS value="all" color="#356a7e" underlayColor="#356a7e"
+                        status={ticketType === 'all' ? 'checked' : 'unchecked'}/>:
+                        <RadioButton.Android value="all" color="#356a7e" uncheckedColor="#356a7e"
+                        status={ticketType === 'all' ? 'checked' : 'unchecked'}/>} 
               <Text style={[styles.serviceRequest, styles.serviceTypo]}>
                 <Text style={styles.ticketNumberContainer1}>
                   <Text style={styles.allTickets}>{`All tickets `}</Text>
@@ -1111,8 +1113,10 @@ const getRequestList = async (jwttoken:string) => {
 
             </View>
             <View style={[styles.serviceClass1, styles.servicePosition]}>
-              <RadioButton.Android value="inscope" color="#356a7e" uncheckedColor="#356a7e"
-                        status={ticketType === 'inscope' ? 'checked' : 'unchecked'}/>
+            {Platform.OS=='ios'?<RadioButton.IOS value="inscope" color="#356a7e" underlayColor="#356a7e"
+                        status={ticketType === 'inscope' ? 'checked' : 'unchecked'}/>:
+                        <RadioButton.Android value="inscope" color="#356a7e" uncheckedColor="#356a7e"
+                        status={ticketType === 'inscope' ? 'checked' : 'unchecked'}/>}
               <Text style={[styles.inScopeContainer, styles.serviceTypo]}>
                 <Text style={styles.ticketNumberContainer1}>
                   <Text style={styles.inScope}>{`in scope `}</Text>
@@ -1121,8 +1125,10 @@ const getRequestList = async (jwttoken:string) => {
               </Text>
             </View>
             <View style={[styles.serviceClass2, styles.servicePosition]}>
-              <RadioButton.Android value="outscope" color="#356a7e" uncheckedColor="#356a7e"
-                        status={ticketType === 'outscope' ? 'checked' : 'unchecked'}/>
+            {Platform.OS=='ios'?<RadioButton.Android value="outscope" color="#356a7e" underlayColor="#356a7e"
+                        status={ticketType === 'outscope' ? 'checked' : 'unchecked'}/>:
+                        <RadioButton.Android value="outscope" color="#356a7e" uncheckedColor="#356a7e"
+                        status={ticketType === 'outscope' ? 'checked' : 'unchecked'}/>}
               <Text style={[styles.plannedService, styles.serviceTypo]}>
                 <Text style={styles.ticketNumberContainer1}>
                   <Text style={styles.inScope}>{`out of scope `}</Text>
