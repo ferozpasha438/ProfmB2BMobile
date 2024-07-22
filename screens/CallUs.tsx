@@ -36,7 +36,7 @@ const CallUs = () => {
   return (
     <View style={styles.callUs}>
 
-     <View style={[styles.rectangleGroup, styles.groupChildPosition]}>
+     {/* <View style={[styles.rectangleGroup, styles.groupChildPosition]}>
         <View style={[styles.groupInner, styles.groupShadowBox]} />
         <Pressable
               style={styles.arrow213}
@@ -61,16 +61,16 @@ const CallUs = () => {
             source={require("../assets/3-1-12.png")}
           />
         </View>
-      </View>
+      </View> */}
 
       
-      <View style={[styles.navBar, styles.groupPosition]}>
+      {/* <View style={[styles.navBar, styles.groupPosition]}>
         <View style={[styles.webViewbottom, styles.groupPosition]}>
           <View style={[styles.homeIndicator, styles.homeIndicatorFlexBox]}>
             <View style={styles.homeIndicator1} />
           </View>
         </View>
-      </View>
+      </View> */}
 
       <Image
         style={[styles.callUsChild, styles.callUsChildPosition]}
@@ -396,7 +396,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   rectangleParent: {
-    top: "50%",
+    top: "45%",
     left: "2%",
     position: "absolute",
   },
@@ -524,7 +524,7 @@ const styles = StyleSheet.create({
     top: 0,
   },
   callUsChild: {
-    top: 140,
+    top: 80,
     width: 200,
     height: 200,
     left:"25%"

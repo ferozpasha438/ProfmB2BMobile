@@ -65,10 +65,10 @@ const ViewTicket = ({route}) => {
                 setImage2Url(ticketDataResponse.image2WithFullPath);
                 setImage3Url(ticketDataResponse.image3WithFullPath);
                 if(ticketDataResponse.image3WithFullPath!=''){
-                   setPageHieght(windowHeight+400);
+                   setPageHieght(windowHeight+360);
                    setPhotoListHieght(380);
                 }else{
-                    setPageHieght(windowHeight+220);
+                    setPageHieght(windowHeight+200);
                     setPhotoListHieght(200);
                 }
         }
@@ -115,7 +115,7 @@ const ViewTicket = ({route}) => {
     <View style={styles.verificationCode}>
 
       {/* <View style={styles.verificationCodeChild} /> */}
-      <View style={styles.viewPosition}>
+      {/* <View style={styles.viewPosition}>
             <View style={[styles.rectangleView, styles.viewPosition]} />
             <Pressable
             style={styles.arrow21}
@@ -129,7 +129,7 @@ const ViewTicket = ({route}) => {
             <Text style={[styles.requestDetails1, styles.arrow21Position]}>
                 Ticket Details
             </Text>
-       </View>
+       </View> */}
 
        <ScrollView style={{ flex: 1 }}
             contentContainerStyle={{ height:pageHieght }}
@@ -492,11 +492,11 @@ const styles = StyleSheet.create({
     width:"50%"
   },
   rectangleParent: {
-    top: 100,
+    top: 50,
     position: "absolute",
   },
   requestDetails: {
-    top: 60,
+    top: 10,
     width: "100%",
     color: Color.black,
     fontSize: FontSize.size_sm,
@@ -512,7 +512,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   maintenanceDetails: {
-    top: 400,
+    top: 350,
     left: "3%",
     position: "absolute",
   },
@@ -575,7 +575,7 @@ const styles = StyleSheet.create({
     width:"100%"
   },
   rectangleGroup: {
-    top: 440,
+    top: 390,
     position: "absolute",
   },
   groupInner: {
@@ -639,7 +639,7 @@ const styles = StyleSheet.create({
   },
   photosFromTheProjectParent: {
     width:"100%",
-    top: 710,
+    top: 650,
     position: "absolute",
   },
   verificationCodeChild: {

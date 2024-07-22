@@ -925,7 +925,7 @@ const getRequestList = async (jwttoken:string) => {
         {/* <View style={styles.arrivedChild} />
         <View style={styles.arrivedItem} /> */}
         
-        <View style={styles.groupChild32Position}>
+        {/* <View style={styles.groupChild32Position}>
           <View style={[styles.groupChild32, styles.groupChild32Position]} />
           <Pressable
             style={styles.arrow21}
@@ -939,7 +939,7 @@ const getRequestList = async (jwttoken:string) => {
           <Text style={[styles.frontOffice, styles.linePosition]}>
             Front Office
           </Text>
-        </View>
+        </View> */}
 
         <ScrollView style={{ flex: 1 }}
             contentContainerStyle={{ height:pageHeight}}
@@ -1100,7 +1100,7 @@ const getRequestList = async (jwttoken:string) => {
 
     <RadioButton.Group onValueChange={handleRadioChange} value={ticketType}>
             <View style={[styles.serviceClass, styles.servicePosition]}>
-              <RadioButton value="all" color="#356a7e" uncheckedColor="#356a7e"
+              <RadioButton.Android value="all" color="#356a7e" uncheckedColor="#356a7e"
                         status={ticketType === 'all' ? 'checked' : 'unchecked'}/>
               <Text style={[styles.serviceRequest, styles.serviceTypo]}>
                 <Text style={styles.ticketNumberContainer1}>
@@ -1111,7 +1111,7 @@ const getRequestList = async (jwttoken:string) => {
 
             </View>
             <View style={[styles.serviceClass1, styles.servicePosition]}>
-              <RadioButton value="inscope" color="#356a7e" uncheckedColor="#356a7e"
+              <RadioButton.Android value="inscope" color="#356a7e" uncheckedColor="#356a7e"
                         status={ticketType === 'inscope' ? 'checked' : 'unchecked'}/>
               <Text style={[styles.inScopeContainer, styles.serviceTypo]}>
                 <Text style={styles.ticketNumberContainer1}>
@@ -1121,7 +1121,7 @@ const getRequestList = async (jwttoken:string) => {
               </Text>
             </View>
             <View style={[styles.serviceClass2, styles.servicePosition]}>
-              <RadioButton value="outscope" color="#356a7e" uncheckedColor="#356a7e"
+              <RadioButton.Android value="outscope" color="#356a7e" uncheckedColor="#356a7e"
                         status={ticketType === 'outscope' ? 'checked' : 'unchecked'}/>
               <Text style={[styles.plannedService, styles.serviceTypo]}>
                 <Text style={styles.ticketNumberContainer1}>
@@ -2604,7 +2604,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   servicePosition: {
-    top: 130,
+    top: 70,
     height: 24,
     position: "absolute",
   },
@@ -2946,14 +2946,14 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   groupParent: {
-    top: 70,
-    width: "100%",
+    top: 20,
+    width: "96%",
     flexDirection: "row",
     left: 0,
     position: "absolute",
   },
   groupParentFrontOffice:{
-    top: 190,
+    top: 120,
     left: "2%",
     width:"96%",
     position: "absolute",
@@ -3725,7 +3725,7 @@ const styles = StyleSheet.create({
   serviceClass: {
     width: "30%",
     height: 30,
-    left: "5%",
+    left: "2%",
   },
   inScope: {
     color: Color.black,

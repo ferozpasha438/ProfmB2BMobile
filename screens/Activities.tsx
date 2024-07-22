@@ -46,7 +46,7 @@ const Activities = ({route}) => {
   const focus = useIsFocused(); 
   const [pagesData, setPagesData] = useState<any[]>([]);
   const [pagesToolData, setPagesToolData] = useState<any[]>([]);
-  const [pageHieght, setPageHieght] = useState(950);
+  const [pageHieght, setPageHieght] = useState(850);
   const [photoListHieght, setPhotoListHieght] = useState(0);
   const [isFocus, setIsFocus] = useState(false);
   const [isFocus2, setIsFocus2] = useState(false);
@@ -235,7 +235,7 @@ const Activities = ({route}) => {
       var toolsListInfo = JSON.parse(toolsListDataAsync);
       if (toolsListInfo !== null && toolsListInfo !== undefined) {
          setPagesToolData(toolsListInfo);
-         setPageHieght(950+(toolsListInfo.length*50));
+         setPageHieght(850+(toolsListInfo.length*50));
       }
 
     } catch (error) {
@@ -249,7 +249,8 @@ const Activities = ({route}) => {
  
   return (
     <View style={styles.moreInformaion}>
-      <View style={styles.tapPosition}>
+
+      {/* <View style={styles.tapPosition}>
         <View style={[styles.tapChild, styles.tapPosition]} />
         <Pressable
           style={styles.arrow21}
@@ -264,7 +265,7 @@ const Activities = ({route}) => {
         <Text style={[styles.serviceRequest, styles.arrow21Position]}>
           Activities
         </Text>
-      </View>
+      </View> */}
 
 
 
@@ -1009,7 +1010,7 @@ const styles = StyleSheet.create({
     marginBottom:"3%"
   },
   frameParent: {
-    top: 70,
+    top: 20,
     height: 700,
     width:"94%",
     left:"3%",

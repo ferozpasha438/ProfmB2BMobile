@@ -23,7 +23,7 @@ const CallUs1 = () => {
   return (
     <View style={styles.callUs}>
       
-      <View style={[styles.rectangleParent, styles.groupChildPosition]}>
+      {/* <View style={[styles.rectangleParent, styles.groupChildPosition]}>
         <View style={[styles.groupChild, styles.groupShadowBox]} />
         <Pressable
               style={styles.arrow213}
@@ -47,7 +47,7 @@ const CallUs1 = () => {
             source={require("../assets/3-1-12.png")}
           />
         </View>
-      </View>
+      </View> */}
 
       <Image
         style={[styles.callUsChild, styles.navBarPosition]}

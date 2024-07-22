@@ -15,7 +15,7 @@ import { RadioButton } from 'react-native-paper';
 
 const MOREInformaion11 = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
-  const [pageHieght, setPageHieght] = useState(1250);
+  const [pageHieght, setPageHieght] = useState(1150);
   const [photoListHieght, setPhotoListHieght] = useState(0);
   const [isFocus, setIsFocus] = useState(false);
   const [isFocus2, setIsFocus2] = useState(false);
@@ -75,9 +75,9 @@ const MOREInformaion11 = () => {
           const selectedImageUris = response?.assets?.map((asset) => asset.uri) || [];
           setSelectedImages(selectedImageUris);
           if(isCustomer){
-            setPageHieght(1350);
+            setPageHieght(1250);
           }else{
-            setPageHieght(1450);
+            setPageHieght(1350);
           }          
           setPhotoListHieght(100);
         }
@@ -120,9 +120,9 @@ const MOREInformaion11 = () => {
   
   const clearAllFields = () => {
     if(isCustomer){
-      setPageHieght(1250);
+      setPageHieght(1150);
     }else{
-      setPageHieght(1350);
+      setPageHieght(1250);
     } 
 
     setPhotoListHieght(0);
@@ -305,7 +305,7 @@ const MOREInformaion11 = () => {
             setLoginUserName(userInfo.userName);
             getCustomerList(userInfo.token);
             setIsCustomer(false);
-            setPageHieght(1350);
+            setPageHieght(1250);
           }else{
             setLoginUserName(userInfo.userName);
             setLoginUserEmail(userInfo.email);
@@ -328,7 +328,7 @@ const MOREInformaion11 = () => {
  
   return (
     <View style={styles.moreInformaion}>
-      <View style={styles.tapPosition}>
+      {/* <View style={styles.tapPosition}>
         <View style={[styles.tapChild, styles.tapPosition]} />
         <Pressable
           style={styles.arrow21}
@@ -343,7 +343,7 @@ const MOREInformaion11 = () => {
         <Text style={[styles.serviceRequest, styles.arrow21Position]}>
           Service Request
         </Text>
-      </View>
+      </View> */}
 
 
 
@@ -559,6 +559,7 @@ const MOREInformaion11 = () => {
               <TextInput
                   multiline
                   numberOfLines={4}
+                  textAlignVertical='top'
                   maxLength={300}
                   onChangeText={text => setProblem(text)}
                   value={txtProblem}
@@ -586,6 +587,7 @@ const MOREInformaion11 = () => {
               <TextInput
                   multiline
                   numberOfLines={4}
+                  textAlignVertical='top'
                   maxLength={300}
                   onChangeText={text => setDescription(text)}
                   value={txtDescription}
@@ -773,7 +775,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   wrapperPosition: {
-    top: 0,
+    top: 5,
     position: "absolute",
     left:0
   },
@@ -1119,7 +1121,7 @@ const styles = StyleSheet.create({
     marginBottom:"3%"
   },
   frameParent: {
-    top: 70,
+    top: 20,
     height: 700,
     width:"94%",
     left:"3%",

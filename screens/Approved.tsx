@@ -911,7 +911,7 @@ const getRequestList = async (jwttoken:string) => {
         {/* <View style={styles.arrivedChild} />
         <View style={styles.arrivedItem} /> */}
         
-        <View style={styles.groupChild32Position}>
+        {/* <View style={styles.groupChild32Position}>
           <View style={[styles.groupChild32, styles.groupChild32Position]} />
           <Pressable
             style={styles.arrow21}
@@ -925,7 +925,7 @@ const getRequestList = async (jwttoken:string) => {
           <Text style={[styles.frontOffice, styles.linePosition]}>
             Front Office
           </Text>
-        </View>
+        </View> */}
 
         <ScrollView style={{ flex: 1 }}
             contentContainerStyle={{ height:pageHeight}}
@@ -2609,7 +2609,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   servicePosition: {
-    top: 130,
+    top: 70,
     height: 24,
     position: "absolute",
   },
@@ -2951,14 +2951,14 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   groupParent: {
-    top: 70,
+    top: 20,
     width: "100%",
     flexDirection: "row",
     left: 0,
     position: "absolute",
   },
   groupParentFrontOffice:{
-    top: 160,
+    top: 100,
     left: "2%",
     width:"96%",
     position: "absolute",
@@ -3728,9 +3728,9 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   serviceClass: {
-    width: "100%",
+    width: "96%",
     height: 20,
-    left: "5%",
+    left: "2%",
   },
   inScope: {
     color: Color.black,

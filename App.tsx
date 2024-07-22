@@ -1,6 +1,8 @@
 const Stack = createNativeStackNavigator();
 import React, {FC, ReactElement, useEffect, useState, Component, useCallback} from 'react';
 import { NavigationContainer } from "@react-navigation/native";
+import {  Image } from "react-native";
+import { FontFamily, FontSize, Color, Border, Padding } from "./GlobalStyles";
 
 import Login from "./screens/Login";
 import VerificationCode from "./screens/VerificationCode";
@@ -184,7 +186,15 @@ const App = () => {
             <Stack.Screen
               name="ViewTicket"
               component={ViewTicket}
-              options={{ headerShown: false }}
+              options={
+                 { 
+                  title:"Ticket Details",
+                  headerTitleStyle: { color: Color.praimary,fontSize:18 },
+                  headerTintColor: Color.praimary,
+                  headerShown:true, 
+                  headerTitleAlign:'center',
+                  headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                 }}
             />
             <Stack.Screen
               name="ViewTicket2"
@@ -195,17 +205,41 @@ const App = () => {
             <Stack.Screen
               name="CreateWorkOrder"
               component={CreateWorkOrder}
-              options={{ headerShown: false }}
+              options={
+                { 
+                 title:"Work Order",
+                 headerTitleStyle: { color: Color.praimary,fontSize:18 },
+                 headerTintColor: Color.praimary,
+                 headerShown:true, 
+                 headerTitleAlign:'center',
+                 headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                }}
             />
             <Stack.Screen
               name="Activities"
               component={Activities}
-              options={{ headerShown: false }}
+              options={
+                { 
+                 title:"Activities",
+                 headerTitleStyle: { color: Color.praimary,fontSize:18 },
+                 headerTintColor: Color.praimary,
+                 headerShown:true, 
+                 headerTitleAlign:'center',
+                 headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                }}
             />
             <Stack.Screen
               name="ToolsNMaterial"
               component={ToolsNMaterial}
-              options={{ headerShown: false }}
+              options={
+                { 
+                 title:"Tools & Materials",
+                 headerTitleStyle: { color: Color.praimary,fontSize:18 },
+                 headerTintColor: Color.praimary,
+                 headerShown:true, 
+                 headerTitleAlign:'center',
+                 headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                }}
             />
             <Stack.Screen
               name="AllToolsNMaterialsRequest"
@@ -225,7 +259,15 @@ const App = () => {
              <Stack.Screen
               name="Schedules"
               component={Schedules}
-              options={{ headerShown: false }}
+              options={
+                { 
+                 title:"Schedules",
+                 headerTitleStyle: { color: Color.praimary,fontSize:18 },
+                 headerTintColor: Color.praimary,
+                 headerShown:true, 
+                 headerTitleAlign:'center',
+                 headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                }}
                />
             
             
@@ -295,42 +337,106 @@ const App = () => {
             <Stack.Screen
               name="FrontOffice"
               component={FrontOffice}
-              options={{ headerShown: false }}
+              options={
+                { 
+                 title:"Front Office",
+                 headerTitleStyle: { color: Color.praimary,fontSize:18 },
+                 headerTintColor: Color.praimary,
+                 headerShown:true, 
+                 headerTitleAlign:'center',
+                 headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                }}
             />
             <Stack.Screen
               name="Approved"
               component={Approved}
-              options={{ headerShown: false }}
+              options={
+                { 
+                 title:"Front Office",
+                 headerTitleStyle: { color: Color.praimary,fontSize:18 },
+                 headerTintColor: Color.praimary,
+                 headerShown:true, 
+                 headerTitleAlign:'center',
+                 headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                }}
             />
             <Stack.Screen
               name="WorkInProgress"
               component={WorkInProgress}
-              options={{ headerShown: false }}
+              options={
+                { 
+                 title:"Front Office",
+                 headerTitleStyle: { color: Color.praimary,fontSize:18 },
+                 headerTintColor: Color.praimary,
+                 headerShown:true, 
+                 headerTitleAlign:'center',
+                 headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                }}
             />
             <Stack.Screen
               name="Completed"
               component={Completed}
-              options={{ headerShown: false }}
+              options={
+                { 
+                 title:"Front Office",
+                 headerTitleStyle: { color: Color.praimary,fontSize:18 },
+                 headerTintColor: Color.praimary,
+                 headerShown:true, 
+                 headerTitleAlign:'center',
+                 headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                }}
             />
             <Stack.Screen
               name="Closed"
               component={Closed}
-              options={{ headerShown: false }}
+              options={
+                { 
+                 title:"Front Office",
+                 headerTitleStyle: { color: Color.praimary,fontSize:18 },
+                 headerTintColor: Color.praimary,
+                 headerShown:true, 
+                 headerTitleAlign:'center',
+                 headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                }}
             />
             <Stack.Screen
               name="OnHold"
               component={OnHold}
-              options={{ headerShown: false }}
+              options={
+                { 
+                 title:"Front Office",
+                 headerTitleStyle: { color: Color.praimary,fontSize:18 },
+                 headerTintColor: Color.praimary,
+                 headerShown:true, 
+                 headerTitleAlign:'center',
+                 headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                }}
             /> 
             <Stack.Screen
               name="InTransit"
               component={InTransit}
-              options={{ headerShown: false }}
+              options={
+                { 
+                 title:"Front Office",
+                 headerTitleStyle: { color: Color.praimary,fontSize:18 },
+                 headerTintColor: Color.praimary,
+                 headerShown:true, 
+                 headerTitleAlign:'center',
+                 headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                }}
             /> 
             <Stack.Screen
               name="OutOfScope"
               component={OutOfScope}
-              options={{ headerShown: false }}
+              options={
+                { 
+                 title:"Front Office",
+                 headerTitleStyle: { color: Color.praimary,fontSize:18 },
+                 headerTintColor: Color.praimary,
+                 headerShown:true, 
+                 headerTitleAlign:'center',
+                 headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                }}
             />           
                       
             
@@ -362,12 +468,28 @@ const App = () => {
             <Stack.Screen
               name="CallUs"
               component={CallUs}
-              options={{ headerShown: false }}
+              options={
+                { 
+                 title:"Contact us",
+                 headerTitleStyle: { color: Color.praimary,fontSize:18 },
+                 headerTintColor: Color.praimary,
+                 headerShown:true, 
+                 headerTitleAlign:'center',
+                 headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                }}
             />
             <Stack.Screen
               name="CallUs1"
               component={CallUs1}
-              options={{ headerShown: false }}
+              options={
+                { 
+                 title:"Who we are",
+                 headerTitleStyle: { color: Color.praimary,fontSize:18 },
+                 headerTintColor: Color.praimary,
+                 headerShown:true, 
+                 headerTitleAlign:'center',
+                 headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                }}
             />
             <Stack.Screen
               name="Reports10"
@@ -422,7 +544,15 @@ const App = () => {
             <Stack.Screen
               name="Reports"
               component={Reports}
-              options={{ headerShown: false }}
+              options={
+                { 
+                 title:"Main Reports",
+                 headerTitleStyle: { color: Color.praimary,fontSize:18 },
+                 headerTintColor: Color.praimary,
+                 headerShown:true, 
+                 headerTitleAlign:'center',
+                 headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                }}
             />
             <Stack.Screen
               name="MOREInformaion4"
@@ -588,7 +718,15 @@ const App = () => {
             <Stack.Screen
               name="Requests5"
               component={Requests5}
-              options={{ headerShown: false }}
+              options={
+                { 
+                 title:"Requests",
+                 headerTitleStyle: { color: Color.praimary,fontSize:18 },
+                 headerTintColor: Color.praimary,
+                 headerShown:true, 
+                 headerTitleAlign:'center',
+                 headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                }}
             />
             <Stack.Screen
               name="MOREInformaion5"
@@ -628,7 +766,15 @@ const App = () => {
             <Stack.Screen
               name="MOREInformaion11"
               component={MOREInformaion11}
-              options={{ headerShown: false }}
+              options={
+                { 
+                 title:"Service Request",
+                 headerTitleStyle: { color: Color.praimary,fontSize:18 },
+                 headerTintColor: Color.praimary,
+                 headerShown:true, 
+                 headerTitleAlign:'center',
+                 headerBackImageSource:{uri:('https://13.69.11.184/B2BImages/arrow-2-1.png')},
+                }}
             />
             <Stack.Screen
               name="MOREInformaion12"

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { StyleSheet, View, Image, Text, Pressable, Modal,ScrollView, Dimensions, TextInput, FlatList, TouchableOpacity, Alert  } from "react-native";
 import Requests2 from "../components/Requests2";
 import { StackNavigationProp } from "@react-navigation/stack";
@@ -158,6 +158,7 @@ const Requests5 = () => {
       setSelectedItems(prevSelectedItems => [...prevSelectedItems, item]);
     }
   };
+  
   const renderData = () => {
     return requestList.map((item:any) => (
       <TouchableOpacity key={item.id} onPress={() => handleItemPress(item)}>
@@ -412,7 +413,7 @@ const Requests5 = () => {
   return (
     <>
       <View style={styles.requests}>
-          <View style={styles.tapPosition}>
+          {/* <View style={styles.tapPosition}>
             <View style={[styles.tapChild, styles.tapPosition]} />
             <Pressable
               style={styles.arrow21}
@@ -426,7 +427,7 @@ const Requests5 = () => {
             <Text style={[styles.requests2, styles.completedHeaderFlexBox]}>
               Requests
             </Text>
-          </View>
+          </View> */}
 
           
 
@@ -437,8 +438,8 @@ const Requests5 = () => {
             onScroll={handleScroll}
       scrollEventThrottle={400}>
 
-          <View style={[styles.rectangleParent, styles.menuListFlexBox]}>
-            <View style={[styles.frameChild, styles.childGroupBorder]} />
+          <View style={styles.rectangleParent}>
+            {/* <View style={[styles.frameChild, styles.childGroupBorder]} /> */}
             <View style={styles.frameParent}>
               <View style={styles.fiRrZoomOutParent}>
                <Pressable style={styles.fiRrZoomOutIcon} onPress={searchFilter}>
@@ -449,7 +450,9 @@ const Requests5 = () => {
                   />
                 </Pressable>
                 <TextInput value={searchText} onChangeText={(text) => setSearchText(text)} onBlur={searchFilter}
-                    autoCapitalize={'none'} style={styles.searchForThe} placeholder="Search for the order number, project name, company name..."
+                    autoCapitalize={'none'} 
+                    style={[styles.frameChild, styles.childGroupBorder, styles.searchForThe]} 
+                    placeholder="Search for the order number, project name, company name..."
                         placeholderTextColor="#000"/>
               </View>
               <Pressable style={[styles.frameIconLayout,styles.frameIconLayout5]} onPress={showFilters}>
@@ -504,14 +507,15 @@ const Requests5 = () => {
                 Reason for closure
             </Text>
             <View style={[styles.rectangleParent3, styles.groupChildLayoutp]}>
-              <View style={[styles.groupChildp, styles.childGroupShadowBox]} />
+              {/* <View style={[styles.groupChildp, styles.childGroupShadowBox]} /> */}
               <TextInput
                     multiline
+                    textAlignVertical='top'
                     numberOfLines={4}
                     maxLength={300}
                     onChangeText={text => setDeleteReason(text)}
                     value={deleteReason}
-                    style={styles.pleaseSelectReason}
+                    style={[styles.groupChildp, styles.childGroupShadowBox,styles.pleaseSelectReason]}
                   />
               {/* <Text style={[styles.pleaseSelectReason, styles.reasonTypo]}>
                         Please select reason
@@ -561,7 +565,8 @@ const Requests5 = () => {
               <Text style={[styles.status, styles.filterTypo]}>Status</Text>
 
 
-              <View style={[styles.filterParent, styles.frameGroupPosition]}>
+              <View style={styles.filterParent}>
+                
                   <RadioButton.Group onValueChange={handleRadioChange} value={selectedFilterValue}>
                       <View style={styles.filter1}>
                         <Text style={[styles.allRequests, styles.requestTypo]}>
@@ -672,7 +677,7 @@ const styles = StyleSheet.create({
     width: 12,
   },
   frameIconLayout5:{
-    right:0,
+    right:'3%',
     zIndex:1,
     position:'absolute'
   },
@@ -867,7 +872,6 @@ const styles = StyleSheet.create({
     elevation: 10,
     height: 48,
     zIndex: 0,
-    left:"2%",
     width: "100%",
     shadowOpacity: 1,
     shadowOffset: {
@@ -880,14 +884,15 @@ const styles = StyleSheet.create({
     borderRadius: Border.br_3xs,
   },
   fiRrZoomOutIcon: {
-    overflow: "hidden",
-    left:"20%",
-    width:16
+    position:'absolute',
+    left:"2%",
+    width:16,
+    zIndex:1,
+    top:10
   },
   searchForThe: {
     fontSize: 11,
     width: "100%",
-    marginLeft: "3%",
     height: 50,
     display: "flex",
     textAlign: "left",
@@ -896,11 +901,14 @@ const styles = StyleSheet.create({
     fontWeight: "300",
     lineHeight: 30,
     alignItems: "center",
+    paddingLeft:25
   },
   fiRrZoomOutParent: {
     justifyContent: "flex-start",
-    alignItems: "center",
+    alignItems: "flex-start",
     flexDirection: "row",
+    position:'absolute',
+    width:'100%'
   },
   frameIconOverlay: {
     flex: 1,
@@ -922,15 +930,15 @@ const styles = StyleSheet.create({
   frameParent: {
     width: "100%",
     justifyContent: "space-between",
-    zIndex: 1,
     alignItems: "center",
     flexDirection: "row",
     position: "absolute",
   },
   rectangleParent: {
-    top: 60,
+    top: 40,
     position: "absolute",
-    width:"96%"
+    width:"96%",
+    left:'2%'
   },
   requestsChild: {
     top: 1068,
@@ -1237,7 +1245,7 @@ const styles = StyleSheet.create({
     shadowRadius: 20,
   },
   groupParent: {
-    top: 120,
+    top: 85,
     left: "2%",
     width:"96%",
     position: "absolute",
@@ -1460,7 +1468,7 @@ button: {
     height: 48,
   },
 buttonPosition: {
-    width: "90%",
+    width: "92%",
     left:"4%",
     position: "absolute",
     zIndex:1,
@@ -1518,6 +1526,7 @@ reasonTypo: {
     color: Color.black,
     display: "flex",
     alignItems: "center",
+    left:'2%'
   },
   groupChild3: {
     top: 0,
@@ -1578,7 +1587,7 @@ reasonTypo: {
     top: 90,
     height: 85,
     width: "100%",
-    left: "8%",
+    left: "6%",
     position: "absolute",
     zIndex:1,
   },
@@ -1674,6 +1683,13 @@ groupPosition2: {
 filterParent: {
   top: 108,
   width: "100%",
+  left: '3%',
+  position: "absolute",
+  zIndex:1,
+  textAlign:'left',
+  alignItems: "flex-start",
+  flex: 1,
+  justifyContent: 'flex-start', // centers vertically
 },
 filter1: {
   width: "100%",
@@ -1784,6 +1800,26 @@ text12: {
   textAlign: "center",
   textTransform: "capitalize",
   color: Color.whait,
+},
+
+radioButtonContainer: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginBottom: 10,
+},
+radioButton: {
+  height: 20,
+  width: 20,
+  borderRadius: 10,
+  borderWidth: 1,
+  borderColor: '#000',
+  marginRight: 10,
+},
+radioButtonSelected: {
+  backgroundColor: '#00FF00', // selected color
+},
+radioButtonLabel: {
+  fontSize: 16,
 },
 
 });

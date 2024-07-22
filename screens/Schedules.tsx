@@ -441,7 +441,8 @@ const getCurrentData = async (selectedDate:Date) => {
     return (
       <>
         <View style={styles.schedules}>
-           <View style={styles.groupPosition}>
+           
+           {/* <View style={styles.groupPosition}>
              <View style={[styles.groupChild2, styles.groupPosition]} />
                 <Pressable
                 style={[styles.arrow21, styles.arrow21Position]}
@@ -466,7 +467,7 @@ const getCurrentData = async (selectedDate:Date) => {
                       source={require("../assets/filter40.png")}/>
                 </Pressable>
                 
-          </View>
+          </View> */}
           
           <ScrollView style={{ flex: 1 }}
             contentContainerStyle={{ height:pageHeight  }}
@@ -1239,7 +1240,7 @@ const getCurrentData = async (selectedDate:Date) => {
       marginTop: 16,
     },
     frameParent: {
-      top: 51,
+      top: 0,
       width:"96%",
       left:"3%",
       position: "absolute",

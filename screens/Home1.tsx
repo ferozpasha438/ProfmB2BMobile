@@ -1,4 +1,4 @@
-import React, {FC, ReactElement, useEffect, useState, Component} from 'react';
+import React, {FC, ReactElement, useEffect, useState, Component, useMemo} from 'react';
 import { Image, StyleSheet, View, Text, Pressable, ScrollView, Dimensions, TextInput, Alert, Platform } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase, useIsFocused } from "@react-navigation/native";
@@ -84,7 +84,7 @@ const Home1 = () => {
   const [onHoldPercentage, setOnHoldPercentage] = useState('0%');
   const [onHoldLeftPercentage, setOnHoldLeftPercentage] = useState('0%');
 
-
+  
   const [selectedFilterValue, setSelectedFilterValue] = useState('');
   const handleRadioChange = (value:any) => {
      setSelectedFilterValue(value);
@@ -174,6 +174,7 @@ const getDashBoardDataCallback = getDashBoardDataReponse => {
  useEffect(() => {
    if(projectCode!=''){
     getDashBoardData();
+    console.log('projectData : '+JSON.stringify(projectData));
    }
  }, [projectCode]);
 
@@ -195,6 +196,8 @@ const getDashBoardDataCallback = getDashBoardDataReponse => {
     
         ))}
   </RadioButton.Group>);
+  
+
 };
 
   const hideMessage=async () =>{
@@ -279,12 +282,13 @@ const getDashBoardDataCallback = getDashBoardDataReponse => {
    var count = projectResponse.length;
    var data=[];
    for (var i = 0; i < count; ++i) {
-     data.push({label:projectResponse[i].textTwo,value:projectResponse[i].text});
+     data.push({ label:projectResponse[i].textTwo, value:projectResponse[i].text});
      if(i===0){
        setProjectCode(projectResponse[i].text);
        setSelectedFilterValue(projectResponse[i].text);
      }
    }
+   console.log('data : '+JSON.stringify(projectResponse));
    setProjectData(data);
  }
  const getProjectDataListForSupervisor = async (jwttoken:string) => {
@@ -750,7 +754,7 @@ const projectDataForSupervisorCallback = projectListResponse => {
            width: "100%",
            height: windowHeight,
            position: "absolute",}} />:null}
-      {isShowPopUp?<View style={[styles.loginWithFaceId, styles.homeItemPosition]} >
+      {isShowPopUp?<View style={styles.loginWithFaceId} >
         <View style={[styles.faceId, styles.groupChildShadowBox1]}>
           <View style={[styles.attendanceSuccessful, styles.homeItemPosition]}>
             <Image
@@ -817,14 +821,14 @@ const projectDataForSupervisorCallback = projectListResponse => {
                 Reason for closure
             </Text>
             <View style={[styles.rectangleParent3, styles.groupChildLayoutp]}>
-              <View style={[styles.groupChildp, styles.childGroupShadowBox]} />
               <TextInput
                     multiline
                     numberOfLines={4}
                     maxLength={300}
+                    textAlignVertical='top'
                     onChangeText={text => setDeleteReason(text)}
                     value={deleteReason}
-                    style={styles.pleaseSelectReason}
+                    style={[styles.groupChildp, styles.childGroupShadowBox,styles.pleaseSelectReason]}
                   />
               {/* <Text style={[styles.pleaseSelectReason, styles.reasonTypo]}>
                         Please select reason
@@ -873,7 +877,7 @@ const projectDataForSupervisorCallback = projectListResponse => {
               <Text style={[styles.status, styles.filterTypo]}>Status</Text>
 
 
-              <View style={[styles.filterParent, styles.frameGroupPosition]}>
+              <View style={styles.filterParent}>
 
                       {renderData()}
                      
@@ -1160,8 +1164,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   homeItemPosition: {
-    top: "50%",
-    left: "50%",
+    top: "10%",
+    left: 0,
     position: "absolute",
   },
   youCanNowTypo: {
@@ -1933,7 +1937,7 @@ const styles = StyleSheet.create({
   successfulLogin: {
     fontSize: FontSize.size_2xl,
     color: Color.colorMediumseagreen,
-    width: 256,
+    width: '100%',
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -1942,35 +1946,34 @@ const styles = StyleSheet.create({
     height: 35,
   },
   youCanNow: {
-    width: 292,
+    width: 320,
     height: 87,
     marginTop: 8,
     color: Color.colorLightsteelblue_100,
     fontSize: FontSize.size_base,
+    left:'2%'
   },
   successfulLoginParent: {
-    marginTop: 16,
+    marginTop: 15,
     alignItems: "center",
   },
   attendanceSuccessful: {
-    marginTop: -138,
-    marginLeft: -146.5,
-    height: 276,
+    height: 270,
     justifyContent: "center",
     alignItems: "center",
+
   },
   icon2: {
     height: "100%",
     width: "100%",
   },
   vector: {
-    left: "88.34%",
-    top: "5.99%",
-    right: "5.83%",
-    bottom: "88.02%",
-    width: "5.83%",
-    height: "5.99%",
+    right: "5%",
+    top: "5%",
+    width: "6%",
+    height: "6%",
     position: "absolute",
+    zIndex:1
   },
   faceId: {
     borderRadius: Border.br_mini,
@@ -1984,14 +1987,16 @@ const styles = StyleSheet.create({
     },
     shadowColor: "rgba(0, 0, 0, 0.05)",
     backgroundColor: Color.whait,
-    width: 343,
+    width: '100%',
     overflow: "hidden",
   },
   loginWithFaceId: {
-    marginTop: -167,
     justifyContent: "center",
     alignItems: "center",
-    marginLeft: -171.5,
+    width:'96%',
+    position:'absolute',
+    top: "25%",
+    left: '2%',
   },
   home: {
     backgroundColor: Color.colorGray_100,
@@ -2248,7 +2253,7 @@ vectorIconp2: {
 },
 status: {
   top: 76,
-  left: "8%",
+  left: "6%",
   width: "100%",
   color: Color.black,
   lineHeight: 25,
@@ -2276,6 +2281,11 @@ groupPosition2: {
 filterParent: {
   top: 108,
   width: "100%",
+  left: "3%",
+  position: "absolute",
+  zIndex:1,
+  textAlign:'left',
+  alignItems: "flex-start",
 },
 filter1: {
   width: "100%",

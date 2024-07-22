@@ -15,7 +15,7 @@ const Reports = () => {
   return (
     <View style={styles.reports}>
     
-      <View style={styles.tapPosition}>
+      {/* <View style={styles.tapPosition}>
         <View style={[styles.tapChild, styles.tapPosition]} />
         <Pressable
           style={styles.arrow211}
@@ -29,14 +29,14 @@ const Reports = () => {
         <Text style={[styles.mainReports, styles.arrow211Position]}>
           Main Reports
         </Text>
-      </View>
+      </View> */}
    
       <ScrollView style={{ flex: 1 }}
             contentContainerStyle={{ height:windowHeight +(13*100) }}
             alwaysBounceVertical={false}>
           
        <View style={[styles.rectangleParent, styles.menuListFlexBox]}>
-        <View style={[styles.frameChild, styles.childGroupBorder]} />
+        {/* <View style={[styles.frameChild, styles.childGroupBorder]} /> */}
         <View style={styles.frameParent}>
             <View style={styles.fiRrZoomOutParent}>
               <Image
@@ -45,7 +45,9 @@ const Reports = () => {
                 source={require("../assets/firrzoomout.png")}
               />
               <TextInput value={searchText} onChangeText={(text) => setSearchText(text)}
-                  autoCapitalize={'none'} style={styles.searchForThe} placeholder="Search for the application number, project name, supervisor name..."
+                  autoCapitalize={'none'} 
+                  style={[styles.frameChild, styles.childGroupBorder,styles.searchForThe]} 
+                  placeholder="Search for the application number, project name, supervisor name..."
                       placeholderTextColor="#000"/>
             </View>
         </View>
@@ -1041,8 +1043,6 @@ const Reports = () => {
 
 const styles = StyleSheet.create({
   menuListFlexBox: {
-    justifyContent: "center",
-    alignItems: "flex-end",
   },
   childGroupBorder: {
     borderWidth: 0.5,
@@ -1069,8 +1069,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   parentPosition: {
-    left: "5%",
+    left: "2%",
     position: "absolute",
+    width:'96%'
   },
   containerTypo1: {
     fontSize: 11,
@@ -1143,7 +1144,6 @@ const styles = StyleSheet.create({
     elevation: 10,
     height: 48,
     zIndex: 0,
-    left:"2%",
     width: "100%",
     shadowOpacity: 1,
     shadowOffset: {
@@ -1156,13 +1156,13 @@ const styles = StyleSheet.create({
     borderRadius: Border.br_3xs,
   },
   fiRrZoomOutIcon: {
-    overflow: "hidden",
-    left:"25%"
+    left:"2%",
+    zIndex:1,
+    position:'absolute'
   },
   searchForThe: {
     fontSize: 11,
     width: "100%",
-    marginLeft: "3%",
     height: 50,
     display: "flex",
     lineHeight: 30,
@@ -1171,11 +1171,11 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.dGBaysan,
     fontWeight: "300",
     alignItems: "center",
+    paddingLeft:30
   },
   frameParent: {
     width: "100%",
-    justifyContent: "space-between",
-    zIndex: 1,
+    justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
     position: "absolute",
@@ -1184,11 +1184,14 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     flexDirection: "row",
+    width:'100%',
+    position:'absolute'
   },
   rectangleParent: {
-    top: 60,
+    top: 40,
     position: "absolute",
-    width:"96%"
+    width:"96%",
+    left:'2%'
   },
   tapPosition: {
     height: 50,
@@ -1198,9 +1201,9 @@ const styles = StyleSheet.create({
     zIndex:1
   },
   allReports: {
-    top: 120,
-    left: "5%",
-    width: "100%",
+    top: 85,
+    left: "2%",
+    width: "96%",
     color: Color.praimary,
     fontWeight: "700",
     height: 24,
@@ -1233,7 +1236,7 @@ const styles = StyleSheet.create({
     right:0
   },
   thereAre5ReportsAvailableParent: {
-    top: 145,
+    top: 110,
     flexDirection: "row",
   },
   reportsChild: {
@@ -1358,7 +1361,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   groupParent: {
-    top: 200,
+    top: 150,
   },
   tapChild: {
     borderBottomRightRadius: Border.br_mini,

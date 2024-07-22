@@ -490,7 +490,7 @@ const ToolsNMaterial = ({route}) => {
   return (
     <View style={styles.toolsMaterials}>
 
-      <View style={styles.groupChild11Position}>
+      {/* <View style={styles.groupChild11Position}>
         <View style={[styles.groupChild11, styles.groupChild11Position]} />
         <Pressable
           style={styles.arrow21}
@@ -505,7 +505,7 @@ const ToolsNMaterial = ({route}) => {
         <Text
           style={[styles.toolsMaterials1, styles.arrow21Position]}
         >{`Tools & Materials`}</Text>
-      </View>
+      </View> */}
 
       <View style={styles.rectangleParent}>
         <View style={[styles.groupChild, styles.groupChildShadowBox3]} />
@@ -1002,7 +1002,7 @@ const styles = StyleSheet.create({
     zIndex:1
   },
   rectangleParent: {
-    top: 50,
+    top: 10,
     left: "2%",
     height: 48,
     width: "96%",
@@ -1311,7 +1311,7 @@ const styles = StyleSheet.create({
     bottom:200
   },
   materials1: {
-    top: 120,
+    top: 80,
     width: "96%",
     position: "absolute",
     left:"2%"
@@ -1337,7 +1337,7 @@ const styles = StyleSheet.create({
     height: 50,
   },
   frameParentTool: {
-    bottom:60,
+    bottom:120,
     height: 50,
     width:"100%"
   },
@@ -1452,7 +1452,7 @@ frameParentPositionTool: {
   right:"2%"
 },
 frameGroupT: {
-    top: 60,
+    top: 30,
     alignItems: "flex-start",
     justifyContent: "center",
     flexDirection: "row",
@@ -1471,7 +1471,7 @@ frameIconT: {
     width: 30,
     top: 14,
     height: 30,
-    left: 15,
+    left: 12,
     position: "absolute",
     overflow: "hidden",
     zIndex:1
@@ -1568,7 +1568,7 @@ toolsPosition: {
 frameContainerT: {
     width:"100%",
     left:"2%",
-    bottom:80,
+    bottom:120,
     height:100,
     position: "absolute",
     alignItems:'flex-start'
@@ -1655,7 +1655,7 @@ frameInner: {
 
 
 rectangleParentTS: {
-    top: 115,
+    top: 80,
     justifyContent: "center",
     position: "absolute",
     alignItems: "flex-end",

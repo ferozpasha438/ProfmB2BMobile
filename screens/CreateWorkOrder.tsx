@@ -281,7 +281,7 @@ const CreateWorkOrder = ({route}) => {
  
   return (
     <View style={styles.moreInformaion}>
-      <View style={styles.tapPosition}>
+      {/* <View style={styles.tapPosition}>
         <View style={[styles.tapChild, styles.tapPosition]} />
         <Pressable
           style={styles.arrow21}
@@ -296,7 +296,7 @@ const CreateWorkOrder = ({route}) => {
         <Text style={[styles.serviceRequest, styles.arrow21Position]}>
           Work Order
         </Text>
-      </View>
+      </View> */}
 
 
 
@@ -1030,7 +1030,7 @@ const styles = StyleSheet.create({
     marginBottom:"3%"
   },
   frameParent: {
-    top: 70,
+    top: 20,
     height: 700,
     width:"94%",
     left:"3%",
