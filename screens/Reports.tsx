@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { StyleSheet, View, Image, Text, Pressable, Dimensions, ScrollView, TextInput } from "react-native";
+import { StyleSheet, View, Image, Text, Pressable, Dimensions, ScrollView, TextInput, Platform } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useNavigation, ParamListBase } from "@react-navigation/native";
 import { Color, Border, FontSize, FontFamily, Padding } from "../GlobalStyles";
@@ -31,7 +31,7 @@ const Reports = () => {
         </Text>
       </View> */}
    
-      <ScrollView style={{ flex: 1 }}
+      <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}
             contentContainerStyle={{ height:windowHeight +(13*100) }}
             alwaysBounceVertical={false}>
           
@@ -46,7 +46,7 @@ const Reports = () => {
               />
               <TextInput value={searchText} onChangeText={(text) => setSearchText(text)}
                   autoCapitalize={'none'} 
-                  style={[styles.frameChild, styles.childGroupBorder,styles.searchForThe]} 
+                  style={[styles.frameChild, styles.childGroupBorder,(Platform.OS=='ios'? styles.searchForTheIOS:styles.searchForThe)]} 
                   placeholder="Search for the application number, project name, supervisor name..."
                       placeholderTextColor="#000"/>
             </View>
@@ -1166,6 +1166,19 @@ const styles = StyleSheet.create({
     height: 50,
     display: "flex",
     lineHeight: 30,
+    textAlign: "left",
+    color: Color.colorLightsteelblue_100,
+    fontFamily: FontFamily.dGBaysan,
+    fontWeight: "300",
+    alignItems: "center",
+    paddingLeft:30
+  },
+  searchForTheIOS: {
+    fontSize: 11,
+    width: "100%",
+    height: 50,
+    display: "flex",
+    lineHeight: 20,
     textAlign: "left",
     color: Color.colorLightsteelblue_100,
     fontFamily: FontFamily.dGBaysan,

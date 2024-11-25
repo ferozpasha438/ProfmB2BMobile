@@ -15,7 +15,7 @@ import { RadioButton } from 'react-native-paper';
 
 const MOREInformaion11 = () => {
   const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
-  const [pageHieght, setPageHieght] = useState(1150);
+  const [pageHieght, setPageHieght] = useState(1250);
   const [photoListHieght, setPhotoListHieght] = useState(0);
   const [isFocus, setIsFocus] = useState(false);
   const [isFocus2, setIsFocus2] = useState(false);
@@ -75,9 +75,9 @@ const MOREInformaion11 = () => {
           const selectedImageUris = response?.assets?.map((asset) => asset.uri) || [];
           setSelectedImages(selectedImageUris);
           if(isCustomer){
-            setPageHieght(1250);
-          }else{
             setPageHieght(1350);
+          }else{
+            setPageHieght(1450);
           }          
           setPhotoListHieght(100);
         }
@@ -120,9 +120,9 @@ const MOREInformaion11 = () => {
   
   const clearAllFields = () => {
     if(isCustomer){
-      setPageHieght(1150);
-    }else{
       setPageHieght(1250);
+    }else{
+      setPageHieght(1350);
     } 
 
     setPhotoListHieght(0);
@@ -305,7 +305,7 @@ const MOREInformaion11 = () => {
             setLoginUserName(userInfo.userName);
             getCustomerList(userInfo.token);
             setIsCustomer(false);
-            setPageHieght(1250);
+            setPageHieght(1350);
           }else{
             setLoginUserName(userInfo.userName);
             setLoginUserEmail(userInfo.email);
@@ -366,7 +366,7 @@ const MOREInformaion11 = () => {
             <View
               style={[styles.wrapper, styles.wrapperPosition]}>
               <TextInput value={loginUserName} 
-                  autoCapitalize={'none'}  style={styles.text1Clr}
+                  autoCapitalize={'none'}  style={(Platform.OS=='ios'?styles.text1ClrIOS:styles.text1Clr)}
                       placeholderTextColor="#000" editable = {false}/>
             </View>
           </View>
@@ -414,7 +414,7 @@ const MOREInformaion11 = () => {
             <View style={styles.frameShadowBox} />
             <View style={[styles.wrapper, styles.wrapperPosition]}>
               <TextInput value={mobileNumber} 
-                    autoCapitalize={'none'} style={styles.text1Clr}
+                    autoCapitalize={'none'} style={(Platform.OS=='ios'?styles.text1ClrIOS:styles.text1Clr)}
                         placeholderTextColor="#000"
                         editable = {false}/>
             </View>
@@ -493,14 +493,14 @@ const MOREInformaion11 = () => {
           
           <RadioButton.Group onValueChange={maintenanceTypeChange} value={maintenanceType}>
                       <View style={styles.filter1}>
-                          <Text style={[styles.allRequests, styles.requestTypo]}>
+                          <Text style={[styles.allRequests2, styles.requestTypo]}>
                                Corrective
                           </Text>
                           <RadioButton.Android value="Corrective" color="#356a7e" uncheckedColor="#356a7e"
                                   status={serviceType === 'Corrective' ? 'checked' : 'unchecked'}/>
                       </View>
                       <View style={styles.filter2}>
-                          <Text style={[styles.completedRequest, styles.requestTypo]}>
+                          <Text style={[styles.completedRequest2, styles.requestTypo]}>
                                Preventive
                           </Text>
                          <RadioButton.Android value="Preventive" color="#356a7e" uncheckedColor="#356a7e"
@@ -773,6 +773,7 @@ const styles = StyleSheet.create({
   },
   rectangleSpaceBlock: {
     width: "100%",
+    marginTop:15
   },
   wrapperPosition: {
     top: 5,
@@ -783,6 +784,13 @@ const styles = StyleSheet.create({
     color: Color.black,
     fontFamily: FontFamily.dGBaysan,
     fontSize:15
+  },
+  text1ClrIOS: {
+    color: Color.black,
+    fontFamily: FontFamily.dGBaysan,
+    fontSize:15,
+    marginTop:'15%',
+    paddingLeft:10
   },
   projectNameTypo: {
     left: "0%",
@@ -1115,7 +1123,7 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.dGBaysan,
   },
   frameInner: {
-    height: 110,
+    height: 120,
   },
   addPhotosParent: {
     marginBottom:"3%"
@@ -1381,6 +1389,15 @@ const styles = StyleSheet.create({
     height:40
   },
   allRequests: {
+    width: "65%",
+    top:25,
+    textTransform: "capitalize",
+    fontSize: FontSize.size_xs,
+    textAlign:'right',
+    fontWeight: "600",
+    color: Color.praimary,
+  },
+  allRequests2: {
     width: "70%",
     top:25,
     textTransform: "capitalize",
@@ -1388,6 +1405,7 @@ const styles = StyleSheet.create({
     textAlign:'right',
     fontWeight: "600",
     color: Color.praimary,
+    left:'2%'
   },
   requestTypo: {
     textTransform: "capitalize",
@@ -1404,9 +1422,19 @@ const styles = StyleSheet.create({
     left:"10%"
   },
   completedRequest: {
-    width: "70%",
+    width: "65%",
     top:25,
-    left:"55%",
+    left:"60%",
+    textTransform: "capitalize",
+    fontSize: FontSize.size_xs,
+    textAlign:'right',
+    fontWeight: "600",
+    color: Color.praimary,
+  },
+  completedRequest2: {
+    width: "60%",
+    top:25,
+    left:"50%",
     textTransform: "capitalize",
     fontSize: FontSize.size_xs,
     textAlign:'right',

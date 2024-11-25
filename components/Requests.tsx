@@ -714,7 +714,7 @@ const styles = StyleSheet.create({
   },
   orderNumber: {
     right: 85,
-    width: 70,
+    width: 100,
     top: 16,
     position: "absolute",
   },

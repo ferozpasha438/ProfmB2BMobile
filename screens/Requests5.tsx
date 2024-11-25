@@ -178,7 +178,7 @@ const Requests5 = () => {
                   </Text>
 
            
-                  <Text style={[styles.orderNumber, styles.textTypo1]}>
+                  <Text style={[(Platform.OS=='ios'?styles.orderNumberIOS:styles.orderNumber), styles.textTypo1]}>
                     Order number :
                   </Text>
                   <Text style={[styles.text,styles.textTypo1]}>{item.ticketNumber}</Text>
@@ -194,7 +194,7 @@ const Requests5 = () => {
                   </Text>
                   <Text style={[styles.text1, styles.textTypo1]}>{format(item.joDate, 'dd/MM/yyyy')}</Text>
 
-                  <Text style={[styles.maintenanceType, styles.textTypo1]}>
+                  <Text style={[(Platform.OS=='ios'?styles.maintenanceTypeIOS:styles.maintenanceType), styles.textTypo1]}>
                     Maintenance type :
                   </Text>
                   <Text
@@ -203,8 +203,8 @@ const Requests5 = () => {
            
             <View style={styles.groupItem} />
             <View style={styles.lineParent}>
-                  <View style={[item.isCompleted?styles.groupChild4c : styles.groupChild3c, styles.groupChildPosition1c]} />
-                  <View style={[item.isCompleted?styles.groupChild4c : (item.isWorkInProgress?styles.groupChild4c : styles.groupChild3c), styles.groupChildPositionc]} />
+                  <View style={[item.isCompleted?styles.groupChild4c : styles.groupChild3c, (Platform.OS=='ios'?styles.groupChildPosition1cIOS:styles.groupChildPosition1c)]} />
+                  <View style={[item.isCompleted?styles.groupChild4c : (item.isWorkInProgress?styles.groupChild4c : styles.groupChild3c), (Platform.OS=='ios'?styles.groupChildPositioncIOS:styles.groupChildPositionc)]} />
                   <Image
                     style={[styles.ellipseIcon, styles.groupChildLayout]}
                     resizeMode="cover"
@@ -432,7 +432,7 @@ const Requests5 = () => {
           
 
         {/* scrolling starts */}
-        <ScrollView style={{ flex: 1 }}
+        <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}
             contentContainerStyle={{ height:pageHeight}}
             alwaysBounceVertical={false}
             onScroll={handleScroll}
@@ -451,7 +451,7 @@ const Requests5 = () => {
                 </Pressable>
                 <TextInput value={searchText} onChangeText={(text) => setSearchText(text)} onBlur={searchFilter}
                     autoCapitalize={'none'} 
-                    style={[styles.frameChild, styles.childGroupBorder, styles.searchForThe]} 
+                    style={[styles.frameChild, styles.childGroupBorder, (Platform.OS=='ios'?styles.searchForTheIOS: styles.searchForThe)]} 
                     placeholder="Search for the order number, project name, company name..."
                         placeholderTextColor="#000"/>
               </View>
@@ -871,7 +871,6 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     elevation: 10,
     height: 48,
-    zIndex: 0,
     width: "100%",
     shadowOpacity: 1,
     shadowOffset: {
@@ -901,7 +900,19 @@ const styles = StyleSheet.create({
     fontWeight: "300",
     lineHeight: 30,
     alignItems: "center",
-    paddingLeft:25
+    paddingLeft:25,
+  },
+  searchForTheIOS: {
+    fontSize: 11,
+    width: "100%",
+    height: 48,
+    textAlign: "left",
+    fontFamily: FontFamily.dGBaysan,
+    color: Color.black,
+    fontWeight: "300",
+    lineHeight: 20,
+    alignItems: "center",
+    paddingLeft:25,
   },
   fiRrZoomOutParent: {
     justifyContent: "flex-start",
@@ -984,8 +995,18 @@ const styles = StyleSheet.create({
     color: Color.black,
     fontWeight: "700",
   },
+  orderNumberIOS: {
+    width: "25%",
+    color: Color.black,
+    fontWeight: "700",
+  },
   maintenanceType: {
     width: "25%",
+    color: Color.black,
+    fontWeight: "700",
+  },
+  maintenanceTypeIOS: {
+    width: "28%",
     color: Color.black,
     fontWeight: "700",
   },
@@ -1163,9 +1184,27 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     position: "absolute",
   },
+  groupChildPosition1cIOS: {
+    width: 100,
+    borderTopWidth: 1,
+    left: "52%",
+    top: 5,
+    height: 1,
+    borderStyle: "solid",
+    position: "absolute",
+  },
   groupChildPositionc: {
     left: "13%",
     width: 90,
+    borderTopWidth: 1,
+    top: 5,
+    height: 1,
+    borderStyle: "solid",
+    position: "absolute",
+  },
+  groupChildPositioncIOS: {
+    left: "12%",
+    width: 100,
     borderTopWidth: 1,
     top: 5,
     height: 1,
@@ -1195,13 +1234,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: Padding.p_sm,
     width: 149,
     borderWidth: 2,
-    left: 178,
+    right: "5%",
     paddingVertical: Padding.p_7xs_5,
     top: 142,
     flexDirection: "row",
     borderStyle: "solid",
     justifyContent: "center",
   },
+
   rectangleContainer: {
     marginTop: 24,
   },

@@ -736,7 +736,7 @@ const App = () => {
               component={Requests5}
               options={
                 { 
-                 title:"Requests",
+                 title:"Tickets",
                  headerTitleStyle: { color: Color.praimary,fontSize:18 },
                  headerTintColor: Color.praimary,
                  headerShown:true, 

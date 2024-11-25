@@ -731,7 +731,7 @@ const getRequestList = async (jwttoken:string) => {
           </Text>
         </View> */}
 
-        <ScrollView style={{ flex: 1 }}
+        <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}
             contentContainerStyle={{ height:pageHeight}}
             alwaysBounceVertical={false}
             onScroll={handleScroll}

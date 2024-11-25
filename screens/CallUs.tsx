@@ -85,7 +85,7 @@ const CallUs = () => {
         <Text style={[styles.doYouNeed, styles.doYouNeedTypo]}>
          {title}
         </Text>
-        <Text style={styles.ourExpertsAre}>
+        <Text style={styles.ourExpertsAre} numberOfLines={3}>
           {description}
         </Text>
 
@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
     display: "flex",
     textAlign: "left",
     fontFamily: FontFamily.dGBaysan,
-    lineHeight: 30,
+    lineHeight: 25,
     alignItems: "center",
   },
   parentSpaceBlock: {
@@ -287,18 +287,19 @@ const styles = StyleSheet.create({
     left:"2%"
   },
   ourExpertsAre: {
-    top: 20,
+    top: 22,
     color: Color.ternary,
-    width: "100%",
+    width: "90%",
     height: 40,
     fontSize: 13,
-    display: "flex",
     textAlign: "left",
     fontFamily: FontFamily.dGBaysan,
     lineHeight: 40,
-    alignItems: "center",
+    alignItems: "flex-start",
     position: "absolute",
-    left:"5%"
+    left:"5%",
+    flexWrap:'wrap',
+    flexDirection:'row'
   },
   groupChild: {
     borderRadius: Border.br_3xs,
@@ -354,7 +355,7 @@ const styles = StyleSheet.create({
   },
   text: {
     width: "90%",
-    height: 30,
+    height: 25,
   },
   frameGroup: {
     alignItems: "flex-start",
@@ -383,7 +384,7 @@ const styles = StyleSheet.create({
   },
   text2: {
     width: "60%",
-    height: 30,
+    height: 25,
   },
   unifiedNumberParent: {
     flexDirection: "row",

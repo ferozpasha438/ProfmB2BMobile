@@ -325,7 +325,7 @@ const projectDataForSupervisorCallback = projectListResponse => {
   return (
     <View style={styles.home}>
       
-    <ScrollView style={{ flex: 1 }}
+    <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}
       contentContainerStyle={{ height:windowHeight + 900 }}
       alwaysBounceVertical={false}>
     <View style={{ flex: 1,width:"96%",left:"2%" }}>
@@ -821,6 +821,7 @@ const projectDataForSupervisorCallback = projectListResponse => {
               <TextInput
                     multiline
                     numberOfLines={4}
+                    textAlignVertical='top'
                     maxLength={300}
                     onChangeText={text => setDeleteReason(text)}
                     value={deleteReason}

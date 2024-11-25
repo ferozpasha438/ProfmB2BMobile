@@ -469,7 +469,7 @@ const getCurrentData = async (selectedDate:Date) => {
                 
           </View> */}
           
-          <ScrollView style={{ flex: 1 }}
+          <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}
             contentContainerStyle={{ height:pageHeight  }}
             alwaysBounceVertical={false}>
                   <View style={styles.frameParent}>
@@ -734,7 +734,7 @@ const getCurrentData = async (selectedDate:Date) => {
       fontFamily: FontFamily.dGBaysan,
     },
     menu31Layout: {
-      width: 74,
+      width: 90,
       alignItems: "center",
     },
     rectangleLayout: {
@@ -1129,7 +1129,7 @@ const getCurrentData = async (selectedDate:Date) => {
       alignItems: "center",
     },
     contractId: {
-      width: 60,
+      width: 80,
       fontSize: FontSize.size_3xs,
       height: 25,
       color: Color.black,
@@ -1143,7 +1143,7 @@ const getCurrentData = async (selectedDate:Date) => {
       flexDirection: "row",
     },
     transcationNumber: {
-      width: 100,
+      width: 120,
       fontSize: FontSize.size_3xs,
       height: 25,
       color: Color.black,
@@ -1158,7 +1158,7 @@ const getCurrentData = async (selectedDate:Date) => {
       flexDirection: "row",
     },
     department: {
-      width: 60,
+      width: 80,
       fontSize: FontSize.size_3xs,
       height: 25,
       color: Color.black,
@@ -1188,7 +1188,7 @@ const getCurrentData = async (selectedDate:Date) => {
       flexDirection: "row",
     },
     time: {
-      width: 60,
+      width: 80,
       fontSize: FontSize.size_3xs,
       height: 25,
       color: Color.black,

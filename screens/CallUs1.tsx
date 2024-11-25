@@ -55,11 +55,8 @@ const CallUs1 = () => {
         source={require("../assets/group-238649.png")}
       />
 
-
-      
-
       <View style={[styles.rectangleGroup, styles.groupLayout]}>
-        <View style={[styles.groupInner, styles.groupLayout]} />
+        <View style={[styles.groupInner, styles.groupLayout2]} />
         <Text style={styles.someInformationAbout}>{title}</Text>
         <Text style={[styles.profmAimsToContainer, styles.whoWeAreFlexBox]}>
           <Text style={styles.profmAimsToContainer1}>
@@ -123,6 +120,11 @@ const styles = StyleSheet.create({
     position: "absolute",
     left:"2%"
   },
+  groupLayout2: {
+    height: "100%",
+    width: "100%",
+    position: "absolute",
+  },
   whoWeAreFlexBox: {
     display: "flex",
     alignItems: "center",
@@ -173,7 +175,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     alignItems: "center",
     position: "absolute",
-    left:"2%"
+    left:"2%",
   },
   groupChild: {
     borderBottomRightRadius: Border.br_mini,

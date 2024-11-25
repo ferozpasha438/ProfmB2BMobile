@@ -206,7 +206,7 @@ const ListItem = ({ item,surveyPopup,deletePopup,makeCorrectivePop,makePreventiv
                     <Image
                       style={styles.groupIcon}
                       resizeMode="cover"
-                      source={require("../assets/groupFront3.png")}
+                      source={modalVisible?require("../assets/groupUp3.png"):require("../assets/groupFront3.png")}
                     />
                 </View>
 
@@ -949,7 +949,7 @@ const getRequestList = async (jwttoken:string) => {
 
           <View style={styles.groupParent}>
 
-                      <ScrollView  horizontal={true}
+                      <ScrollView  horizontal={true} showsHorizontalScrollIndicator={false}
                               contentContainerStyle={{ paddingHorizontal: 20 }} >
 
                               <View style={styles.rectangleLayout}>
@@ -1909,6 +1909,7 @@ const getRequestList = async (jwttoken:string) => {
                   <TextInput
                         multiline
                         numberOfLines={4}
+                        textAlignVertical='top'
                         maxLength={300}
                         onChangeText={text => setDeleteReason(text)}
                         value={deleteReason}
@@ -2093,6 +2094,7 @@ const getRequestList = async (jwttoken:string) => {
                   <TextInput
                         multiline
                         numberOfLines={4}
+                        textAlignVertical='top'
                         maxLength={300}
                         onChangeText={text => setDeleteReason(text)}
                         value={deleteReason}
@@ -2131,7 +2133,7 @@ const getRequestList = async (jwttoken:string) => {
           <View style={[styles.groupChild23, styles.groupChildBorder]} />
          
                 <View style={[styles.notesDataListView,{height:((notesList.length*50)+20)}]} >
-                  <ScrollView style={{ flex: 1,top:55 }}
+                  <ScrollView style={{ flex: 1,top:55 }} showsVerticalScrollIndicator={false}
                     contentContainerStyle={{ height:((notesList.length*90))}}
                     alwaysBounceVertical={false}>
                       <View style={{ flex: 1,top:-55 }}>
@@ -2404,7 +2406,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   text10Layout: {
-    width: 51,
+    width: 60,
     alignItems: "center",
   },
   closedLayout: {
@@ -2711,8 +2713,8 @@ const styles = StyleSheet.create({
     height: 8,
   },
   arrived1: {
-    width: 42,
-    marginLeft: 4,
+    width: 45,
+    marginLeft: 2,
     height: 16,
     textAlign: "left",
     color: Color.black,
@@ -2860,7 +2862,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   onHold: {
-    width: 43,
+    width: 45,
     fontWeight: "300",
     textTransform: "capitalize",
     marginLeft: 4,
@@ -3055,14 +3057,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   dateOfRequest: {
-    width: "33%",
+    width: "35%",
     fontSize: FontSize.size_3xs,
     textAlign: "left",
     color: Color.black,
     fontWeight: "700",
   },
   text10: {
-    width:"50%",
+    width:"52%",
     color: Color.praimary,
     fontSize: FontSize.size_3xs,
     fontWeight: "300",
@@ -3114,11 +3116,11 @@ const styles = StyleSheet.create({
     fontWeight: "700",
   },
   text11: {
-    width: "50%",
+    width: "45%",
     color: Color.praimary,
     fontSize: FontSize.size_3xs,
     fontWeight: "300",
-    marginLeft: 2,
+    marginLeft: 0,
     textAlign: "left",
   },
   frameParent8: {
@@ -3173,7 +3175,7 @@ const styles = StyleSheet.create({
     top: 200,
   },
   disciplineType: {
-    width: "30%",
+    width: "33%",
     fontSize: FontSize.size_3xs,
     textTransform: "capitalize",
     textAlign: "left",
@@ -3229,7 +3231,8 @@ const styles = StyleSheet.create({
   groupChildLayout1: {
     height: 250,
     width: "100%",
-    marginBottom:"5%"
+    marginBottom:"5%",
+    zIndex:0
   },
   groupChild8: {
     top: 0,
@@ -3650,7 +3653,7 @@ const styles = StyleSheet.create({
   },
   groupIcon: {
     width: "12%",
-    height: 6,
+    height: 8,
     right:10,
     flexDirection: "row",
     position: "absolute",
@@ -4214,6 +4217,8 @@ modalContainer: {
   borderRadius: Border.br_8xs,
   borderColor: Color.praimary,
   borderStyle: "solid",
+  position:'absolute',
+  elevation:50
 },
 modalContent: {
   width:"100%"

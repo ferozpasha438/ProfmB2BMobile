@@ -296,7 +296,7 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
   textLayout: {
-    width: "50%",
+    width: "70%",
     marginTop: 24,
     height: 20,
     alignItems: "center",
@@ -556,14 +556,14 @@ const styles = StyleSheet.create({
     color: Color.color,
   },
   makeSureAll: {
-    width: 143,
+    width: "95%",
     marginTop: 24,
     color: Color.color,
   },
   highVoltage: {
     marginTop: 24,
     color: Color.color,
-    width: 142,
+    width: "95%",
   },
   routineMaintenanceParent: {
     marginLeft: 52,
